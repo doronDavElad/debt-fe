@@ -1,0 +1,29 @@
+@import '../../style/main.scss';
+
+
+.search_container{
+    border-radius: $border-radius-input;
+    display: inline-block;
+    height: 40px;
+    place-content: center;
+    border-radius: $border-radius-input;
+    min-width: 23vw;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 12px 0;
+    padding-inline: 10px;
+    gap: 10px;
+    box-shadow: $search-shadow;
+    border: 1px solid $grey-blue;
+    .search_img{
+        width: 18px;
+        height: 18px;
+    }
+    .search_input{
+        width: 100%;
+        border: none;
+        outline: none;
+    }
+
+}

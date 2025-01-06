@@ -1,0 +1,43 @@
+<div class="header_container">
+    <div class="start_container">
+    <img src="assets/images/eladLogo.svg" alt="logo">
+    <ul class="header_links">
+        <li *ngFor="let link of headerLinks" class="item">{{link.name}}</li>
+        
+    </ul>
+</div>
+    <div class="end_container">
+
+        <app-search-input 
+            [name]="name" 
+            [id]="id" 
+            [placeholder]="placeholder">
+        </app-search-input>
+
+        <div class="user_contianer">
+            <img class="user_image" src="../../../assets/images/user.svg" alt="user image">
+            <p class="user_name">Yafit-De-Mayo Keinan</p>
+        </div>
+        <button class="select_bottom" (click)="toggleChevronClass()">
+            <p class="button_text">אלעד פתרונות</p>
+            <img [ngClass]="imageClass" src="../../../assets/images/chevron_down.svg" alt="chevron open select options">
+            
+            <div class="select_menu" [ngClass]="{'select_menu_open': isMenuOpen}">
+                <ul>
+                  <li>Option 1</li>
+                  <li>Option 2</li>
+                  <li>Option 3</li>
+                  <!-- Add more options as needed -->
+                </ul>
+              </div>
+
+        </button>
+
+        
+        
+       
+</div>
+
+
+
+</div>

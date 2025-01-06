@@ -1,0 +1,46 @@
+body {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    margin: 0;
+    padding: 0;
+    direction: rtl;
+  }
+  
+  body {
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul,
+  ol {
+    margin: 0;
+  }
+  
+  input,
+  button,
+  textarea,
+  select {
+    font-family: inherit;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  ol,
+ul {
+  padding: 0;
+  list-style: none;
+}
+button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+  }

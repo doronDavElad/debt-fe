@@ -1,0 +1,12 @@
+<div class="sub_header_container">
+    <button class="item_container"  *ngFor="let tab of tabs">
+        <div class="top_data">
+            <p class="count_data">{{tab.value}}</p>
+            <img [src]="tab.img" [alt]="tab.title">        
+        </div>
+        <div class="bottom_data">
+            <p class="title">{{tab.title}}</p>
+        </div>
+    </button>
+   
+</div>
