@@ -30,8 +30,8 @@ export class HeaderComponent {
   imageClass:string='chevron_down'
   isMenuOpen: boolean = false;
   headerLinks:HeaderLinksInterface[]=[
-   { name:'חשבוניות', path:""},
-   { name:'לקוחות', path:""},
+   { name:'חשבוניות', path:"/invoices"},
+   { name:'לקוחות', path:"/customers"},
   ]
 
 }

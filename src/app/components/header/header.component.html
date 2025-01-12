@@ -2,7 +2,10 @@
     <div class="start_container">
     <img src="assets/images/eladLogo.svg" alt="logo">
     <ul class="header_links">
-        <li *ngFor="let link of headerLinks" class="item">{{link.name}}</li>
+        <li *ngFor="let link of headerLinks" class="item">
+            <!-- <a [routerLink]="link.path">{{link.name}}</a> -->
+            <!-- {{link.name}} -->
+        </li>
         
     </ul>
 </div>
