@@ -1,10 +1,62 @@
-<div>
-    <table>
-        <thead>
-            <tr>
-                <th class="titles"></th>
+<div class="container">
+    <div class="table_filters"></div>
+    <table class="table">
+        <thead class="table_head">
+            <tr class="title_row">
+                <th class="titles" *ngFor="let colData of allData">
+                    <div class="title_container">
+                        <p class="title">{{ colData.title }}</p>
+                        <button class="sort_btn" *ngIf="colData.sort">
+                            <img class="sort_image" src="../../../assets/images/arrow_down.svg" alt="arrow down sort image">
+                        </button>
+                    </div>
+                </th>
             </tr>
         </thead>
+        <tbody class="table_body" *ngIf="tableData">
+            <ng-container *ngFor="let rowData of tableData; let j = index">
+
+                <tr class="table_row">
+                    <td class="table_data_container"
+                    *ngFor="let column of allData"
+                    >
+                    <div class="switch_container" [ngSwitch]="column.type">
+
+                        <div class="text"  *ngSwitchCase="'text'">{{rowData[column.controlName]}}</div>
+                        <span  *ngSwitchCase="'status'" class="status_cintainer">
+                        <div 
+                       
+                        [ngClass]="{
+                            'status': rowData[column.controlName] === 'ללא תגובה' || 
+                                     rowData[column.controlName] === 'נדחתה' ||
+                                     rowData[column.controlName] === 'נשלחה' ||
+                                     rowData[column.controlName] === 'אושר לתשלום',
+                            'no_comment': rowData[column.controlName] === 'ללא תגובה',
+                            'rejected': rowData[column.controlName] === 'לא נשלחה',
+                            'didnt_send': rowData[column.controlName] === 'נדחתה',
+                            'sent': rowData[column.controlName] === 'נשלחה',
+                            'agreed': rowData[column.controlName] === 'אושר לתשלום'
+                        }"
+                    >
+                        <img  *ngIf="rowData[column.controlName] === 'לא נשלחה'"
+                        src="../../../assets/images/indicator.svg" alt="didnt send indicator">
+                        <p>
+                            {{ rowData[column.controlName] }}
+                        </p>
+                      
+                    </div>
+                    <img  *ngIf="rowData[column.controlName] === 'אושר לתשלום'"
+                    src="../../../assets/images/agreed.svg" alt="payment agree sign">
+                </span>
+                    </div>
+                    
+                    
+                </td>
+            </tr>
+        </ng-container>
+
+        </tbody>
+        <div *ngIf="!tableData"></div>
 
 
 

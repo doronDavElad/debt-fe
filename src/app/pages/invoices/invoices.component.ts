@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { SubHeaderComponent } from '../../components/sub-header/sub-header.component';
 import { GenericTableComponent } from '../../components/generic-table/generic-table.component';
-import { IInputData } from '../../components/generic-table/table-interface';
+import { ItableValues } from '../../components/generic-table/table-interface';
 import { invoicesTable } from '../../mockData/bills';
 
 @Component({
@@ -14,60 +14,61 @@ import { invoicesTable } from '../../mockData/bills';
 export class InvoicesComponent {
 
   tableData: any[] = invoicesTable;
-  tableInvoiceMockData:IInputData[]=[
+  tableInvoiceMockData:ItableValues[]=[
     {
       controlName: 'customerId',
-      initialValue: null,
       type: 'text',
       title: 'קוד לקוח',
+      sort:true
+      
     },
     {
       controlName: 'customerName',
-      initialValue: null,
       type: 'text',
       title: 'לקוח',
+      sort:true
     },
     {
       controlName: 'projectName',
-      initialValue: null,
       type: 'text',
       title: 'פרוייקט',
+      sort:true
     },
     {
       controlName: 'date',
-      initialValue: null,
       type: 'date',
       title: 'תאריך חשבונית',
+      sort:true
     },
     {
       controlName: 'billNumber',
-      initialValue: null,
       type: 'text',
       title: 'מספר חשבונית',
+      sort:true
     },
     {
       controlName: 'secondDate',
-      initialValue: null,
       type: 'text',
       title: 'תאריך ערך',
+      sort:true
     },
     {
       controlName: 'payAmount',
-      initialValue: null,
       type: 'text',
       title: 'סכום כולל מע"מ',
+      sort:true
     },
     {
       controlName: 'eladEmployee',
-      initialValue: null,
       type: 'text',
       title: 'גורם מטפל',
+      sort:true
     },
     {
       controlName: 'status',
-      initialValue: null,
-      type: 'text',
+      type: 'status',
       title: 'סטטוס',
+      sort:true
     },
   ]
 

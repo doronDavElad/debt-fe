@@ -1,0 +1,149 @@
+@import '../../style/main.scss';
+
+@mixin status_p_tag {
+    font-size: 14px;
+  }
+.container{
+    margin: 0 16px;
+}
+.table_filters{
+    height: 64px;
+    border: 1px solid red;
+
+}
+.table{
+    width: 100%;
+    border-spacing: 0;
+    padding-inline: 16px;
+    border-collapse: collapse;
+    // place-self: center;
+    
+
+    .table_head{
+        .title_row{
+            // background-color: $grey-blue;
+            height: 57px;
+            border-top-right-radius: 8px;
+            .titles{
+                // border: 1px solid black;
+                // border-bottom: 1px solid red;
+                color:  $grey_title;
+                .title_container{
+                    display: flex;
+                    align-items: center;
+                    text-align: right;
+
+                
+                .sort_btn{
+                    width: 20px;
+                    height: 20px;
+                    .sort_image{
+                        
+                        
+                        
+                    }
+                }
+                .title{
+                    font-size: 16px;
+                    font-weight: 400;
+                    text-align: right;
+                    display: inline-block;
+                   
+                }
+            }
+                
+            }
+            
+        }
+        
+    }
+    .table_body{
+        .table_row{
+            border-bottom: 1px solid red;
+            border-bottom: $border_grey;
+            // display: inline;
+            height: 60px;
+            &:last-child{
+                border: none;
+            }
+            .table_data_container{
+                // border-bottom: 1px solid black;
+                // border-top: 1px solid black;
+                padding: 0;
+                .switch_container{
+                    // display: flex;
+                    .text{
+
+                    }
+                    .status_cintainer{
+                       display: flex;
+                       gap: 5px;
+                    
+                    
+                    .status{
+                        justify-items: center;
+                        // min-width: 72px;
+                        padding-inline: 8px;
+                        height: 24px;
+                        border-radius: 16px;
+                        // border: 1px solid $table_status_border;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-evenly;
+
+                         @include status_p_tag
+                    }
+                }
+
+                    .no_comment{
+                        border: 1px solid $table_status_border;
+                        background-color: $no_comment_background;
+                        p{
+
+                            @include status_p_tag 
+                        }
+                    }
+                    .rejected{
+                        display: flex;
+                        gap: 5px;
+
+                        p{
+                            color: $rejected_color;
+                            @include status_p_tag
+                        }
+                    }
+                    .didnt_send{
+                        border: 1px solid $didnt_send_border;
+                        background-color: $didnt_send_backgroud;
+                        p{
+
+                            @include status_p_tag
+                        }
+                    }
+                    .sent{
+                        border: 1px solid $sent_border;
+                        background-color: $sent_backgorund;
+                        p{
+                            color: $sent_color;
+                            @include status_p_tag
+                        }
+                    }
+                    .agreed{
+                        border: 1px solid $agreed_border;
+                        background-color:$agreed_backgorund ;
+                        p{
+
+                            @include status_p_tag
+                        }
+                    }
+
+
+                    // all stich case 
+                    
+                }
+               
+            }
+        }
+    }
+
+}

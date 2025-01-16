@@ -1,3 +1,4 @@
+@import './app/style/main.scss';
 *{
     direction: rtl;
 
@@ -6,4 +7,14 @@ body{
     margin:0;
     width: 100%;
     overflow-y: hidden;
+    background-color: $app-background;
+}
+.page_layout{
+    // margin: 0 15.208vw;
+    margin: 0 292px;
+    background-color:  $background-white;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    
+    
 }

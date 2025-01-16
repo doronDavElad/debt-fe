@@ -10,7 +10,8 @@
  $background-white: rgba(255, 255, 255, 1);
  $grey:rgba(146, 146, 146, 1);
  $dark-grey:  rgba(75, 75, 75, 1);
- 
+ $grey_title: rgba(115, 115, 115, 1);
+ $border_grey: 1px solid rgba(190, 190, 190, 1);
  $green: rgba(178, 245, 169, 1);
 
  $pink: rgba(245, 169, 169, 1);
@@ -20,9 +21,32 @@
 
 
 
+$app-background: rgba(237, 234, 243, 1);
 
 $grey-blue: rgba(230, 234, 240, 1);
 
+
+
+
+// status table colors:
+$table_status_border:rgba(245, 214, 181, 1);
+$no_comment_background: rgba(248, 227, 205, 0.5);
+
+$rejected_color: rgba(238, 0, 4, 1);
+
+$didnt_send_color: rgba(214, 0, 4, 1);
+$didnt_send_border:rgba(214, 0, 4, 0.2);
+$didnt_send_backgroud: rgba(255, 235, 235, 0.9);
+
+
+$sent_color: rgba(41, 0, 100, 1);
+$sent_border:  rgba(206, 176, 250, 1);
+$sent_backgorund: rgba(244, 238, 254, 1);
+
+
+
+$agreed_border:rgba(176, 224, 222, 1);
+$agreed_backgorund: rgba(176, 224, 222, 0.22);
 
 
 
