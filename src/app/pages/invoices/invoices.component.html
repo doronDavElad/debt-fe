@@ -1,7 +1,16 @@
 <p>invoices works!</p>
-<div>
+<div class="page_layout">
     <div class="site_content_container">
     <app-sub-header></app-sub-header>
-</div>
+    </div>
+
+    <div class="tableContainer">
+        <app-generic-table 
+        [allData]="tableInvoiceMockData"
+        [tableData]="tableData"
+
+        ></app-generic-table>
+
+    </div>
 
 </div>
