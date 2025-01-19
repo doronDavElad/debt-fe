@@ -1,0 +1,90 @@
+@import '../../style/main.scss';
+
+.input_container{
+    height: 40px;
+    // border: 1px solid red;
+    // display: flex;
+    // align-items: center;
+    .input_type{
+        height: 100%;
+        .text_input_container{
+            min-width: 18rem;
+            height: 100%;
+            border:  $border_grey;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+           .search_img{
+            width: 20px;
+            height: 20px;
+            padding-inline-start: 10px;
+            padding-inline-end: 4px;
+        } 
+        .text_input{
+            width: 95%;
+            height: 100%;
+            border: none;
+            border: 0;
+            padding: 0;
+            min-width: 15.6rem;
+            margin-inline-end: 8px;
+            outline: none;
+
+            &::placeholder {
+                font: 16px;
+            }
+        }
+
+        }
+
+        .selectContainer{
+            min-width: 18rem;
+            height: 100%;
+            border:  $border_grey;
+            border-radius: 8px;
+            padding-inline: 8px;
+            position: relative;
+            .select_input_container{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                height: 100%;
+               
+                p{
+                    
+                }
+                .select_chevron{
+                    // width: 12px;
+                    // height: 6px;
+                }
+            }
+            .dropdown_options {
+                position: absolute;
+                left: 0;
+                width: 100%; 
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                background-color: white;
+                z-index: 10;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                overflow-y: auto;
+                max-height: 200px; 
+                margin-top: 2px;
+                // bottom: 2px;
+                padding: 8px;
+
+                .dropdown_option{
+                    border: 1px solid red;
+                    height: 32px;
+                    // margin-inline:8px ;
+                    align-content: center;
+                    margin: 4px 0;
+
+
+                }
+            }
+        }
+            //another input type here
+        }
+    }
