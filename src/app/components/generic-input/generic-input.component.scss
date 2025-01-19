@@ -62,24 +62,27 @@
             .dropdown_options {
                 position: absolute;
                 left: 0;
-                width: 100%; 
-                border: 1px solid #ccc;
+                width: calc(100% - 16px);                border: 1px solid #ccc;
                 border-radius: 8px;
                 background-color: white;
                 z-index: 10;
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
                 overflow-y: auto;
-                max-height: 200px; 
+                // max-height: 200px; 
                 margin-top: 2px;
                 // bottom: 2px;
                 padding: 8px;
+                display: flex;
+                flex-direction: column;
 
                 .dropdown_option{
                     border: 1px solid red;
                     height: 32px;
-                    // margin-inline:8px ;
                     align-content: center;
                     margin: 4px 0;
+                    font-size: 16px;
+                    align-self: start;
+                    width: 100%;
 
 
                 }

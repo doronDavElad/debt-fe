@@ -13,24 +13,26 @@
           </div> 
 <div class="selectContainer"  *ngSwitchCase="'select'">
   <button class="select_input_container"  (click)="toggleDropdown()">
-    <p *ngIf="input.placeHolder">{{ input.placeHolder }}</p>
+    <!-- <p *ngIf="input.placeHolder">{{ input.placeHolder+ ' ' +input.value}} </p> -->
+    <p *ngIf="input.placeHolder">{{ input.placeHolder}}  {{ input.value === '' ? input.options?.[0] : input.value }} </p>
     <div class="select_input">
       
     </div> 
     <img class="select_chevron" [src]="input.icon" alt="">
   </button> 
   <div *ngIf="isDropdownOpen" class="dropdown_options">
-    <div 
+    <button 
     class="dropdown_option" 
     *ngFor="let option of input.options" 
-    (click)="selectOption(option)"
+    (click)="selectOption(option,i)"
     >
     {{ option }}
-  </div>
+  </button>
   
   
 </div>
 </div>
 
 
+</div>
 </div>

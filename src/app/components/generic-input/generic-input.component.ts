@@ -22,11 +22,16 @@ export class GenericInputComponent {
   toggleDropdown(): void {
     this.isDropdownOpen = !this.isDropdownOpen; // Toggle dropdown state
   }
-  selectOption(option: string): void {
+  selectOption(option: string,index:number): void {
     // this.selectedOption = option; // Update the selected option
     // this.isDropdownOpen = false; // Close the dropdown
-    console.log('Selected Option:', option); // Emit or log selected option
+    console.log('Selected Option:', option); 
+    // Emit or log selected option
+    this.taskeInputs[index].value = option;
+    this.isDropdownOpen = false;
+    this.InputValue.emit({ value: option, index });
   }
+
   ngOnInit(): void {
     // console.log('allData:', this.taskeInputs); 
   }
