@@ -1,47 +1,68 @@
 @import '../../style/main.scss';
 .sub_header_container{
-   border-radius: 3px;
-   box-shadow:  $container-shadow;
-justify-self: center;//    width: 72vw;
-align-self: center;
-   width: fit-content;
-   max-height: 180px;
+    // border-radius: 3px;
+    // box-shadow:  $container-shadow;
+    // // justify-self: center;//    width: 72vw;
+    // // align-self: center;
+    // width: fit-content;
+    // max-height: 180px;
 
-    .item_container{
-        padding: 52px 31px ;
-        min-width: 14vw;
+    border-radius: 3px;
+    box-shadow: 4px 4px 5px 0px #E9E9E9;
+    width: fit-content;
+    max-height: 180px;
+    display: flex;
+    gap: 16px;
+    // border: 1px solid blue;
+    width: 100%;
+    justify-items: stretch;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    
+    .btn{
+        border: 1px solid  rgba(255, 255, 255, 1);;
+        height: 120px;
+        border-radius: 8px;
+        // padding: 52px 31px ;
+        width: 20%;
+        background-color: rgba(247, 246, 250, 1);;
 
-      
+      &.active{
+       background-color: $background-white;
+       border: 1.5px solid $actvie-sub_header_border;
+       box-shadow: $actvie_btn_sub_Header_shadow;
+
+      }
             
-        .all_data{
-        
-        }
-      
+       .item_container{
+        display: flex;
 
-        
-       
-        .top_data{
-            display: flex;
-            justify-content: space-between;
-            .count_data{
-                font-size: 48px;
-                font-weight: 300;
-                display: inline-block;
-            }
-            
-            .count_data{
-                display: inline-block;
-                
-            }
-        }
-        .bottom_data{
-            .title{
-                justify-self: start;
-                font-size: 16px;
-                font-weight: 400;
-                margin-top: 16px;
 
+            .img_container{
+                display: flex; 
+                justify-content: center;
+                align-items: center; 
+                width: 52px;
+                height: 52px;
+                box-shadow: 0px 8px 10px 0px rgba(62, 62, 62, 0.26);
+                background-color: rgba(234, 234, 234, 0.9);
+                border-radius: 50%
+                ;
             }
-        }
+            .left_container{
+                .count_data{
+                    font-size: 40px;
+                    font-weight: 500;
+
+                }
+                .title{
+                    font-size:18px;
+                    font-weight: 400;
+                    color: $subHeader_title;
+                    
+                }
+            }
+       }
     }
 }

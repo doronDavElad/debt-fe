@@ -1,12 +1,22 @@
 <div class="sub_header_container">
-    <button class="item_container"  *ngFor="let tab of tabs">
-        <div class="top_data">
-            <p class="count_data">{{tab.value}}</p>
-            <img [src]="tab.img" [alt]="tab.title">        
-        </div>
-        <div class="bottom_data">
-            <p class="title">{{tab.title}}</p>
+    <button 
+    class="btn"  
+    *ngFor="let tab of tabs" 
+    (click)="selectTab(tab)"     
+    [ngClass]="tab === selectedTab ? 'active' : ''"
+    >
+        <div class="item_container">
+            <span class="img_container">
+                <img [src]="tab.img" [alt]="tab.title">        
+            </span>
+            <div class="left_container">
+                <p class="count_data">{{tab.value}}</p>
+                
+                <p class="title">{{tab.title}}</p>
+            </div>
+         
         </div>
     </button>
+
    
 </div>
