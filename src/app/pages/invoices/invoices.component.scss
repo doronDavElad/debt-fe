@@ -1,0 +1,21 @@
+@import '../../style/main.scss';
+.site_content_container{
+    margin-bottom: 20px;
+}
+.tableContainer{
+    background-color: $background-white;
+    .table_filters{
+        display: flex;
+        justify-content: space-between;
+        margin-inline: 16px;
+        height: 64px;
+        align-items: center;
+    }
+    .inputs {
+        display: flex;
+        justify-content: space-between; /* or other flex properties */
+        align-items: center; /* adjust depending on how you want to align children */
+        gap: 16px;
+          }        
+    }
+

@@ -55,9 +55,11 @@
                     
                 }
                 .select_chevron{
-                    // width: 12px;
-                    // height: 6px;
+                    transition: transform 0.3s ease;
                 }
+                .select_chevron.rotated {
+                    transform: rotate(180deg);
+                  }
             }
             .dropdown_options {
                 position: absolute;

@@ -18,7 +18,12 @@
     <div class="select_input">
       
     </div> 
-    <img class="select_chevron" [src]="input.icon" alt="">
+    <img class="select_chevron" 
+    [src]="input.icon" 
+    alt=""
+    [class.rotated]="isDropdownOpen"
+
+    >
   </button> 
   <div *ngIf="isDropdownOpen" class="dropdown_options">
     <button 
