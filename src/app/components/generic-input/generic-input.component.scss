@@ -90,6 +90,24 @@
                 }
             }
         }
+
+        .export_to_exel_container{
+            width: 40px;
+            height: 40px;
+            border:  $border_grey;
+            border-radius: 8px;
+            text-align: center;  
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .exel_btn{
+               
+                .exel_img{
+
+                }
+            }
+
+        }
             //another input type here
         }
     }

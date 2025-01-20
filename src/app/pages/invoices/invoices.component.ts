@@ -7,6 +7,8 @@ import { Itabs_sub_header } from '../../components/sub-header/subHeader_mockData
 import { IgenericInput } from '../../components/generic-input/genericInput.interface';
 import { GenericInputComponent } from "../../components/generic-input/generic-input.component";
 import { InvoiceService } from './invoice.service';
+import * as XLSX from 'xlsx';
+import { formatDate } from '../../helpers/tableHelpers';
 
 @Component({
   selector: 'app-invoices',
@@ -26,7 +28,10 @@ export class InvoicesComponent {
   currentSortColumn = signal<string | null>(null);
 
 
-  constructor(private invoiceService: InvoiceService) {}
+  constructor(private invoiceService: InvoiceService) {
+    this.exportToExcel = this.exportToExcel.bind(this);
+
+  }
 
   ngOnInit(): void {
     console.log(this.tableInvoiceMockData);
@@ -37,10 +42,18 @@ export class InvoicesComponent {
       this.sortedData.set(data); 
     });
   }
-  // searchData=(text:string):void=>{
-  //   console.log(text);
+  exportToExcel(): void {
     
-  // }
+    const data = this.sortedData(); 
+    const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(data);
+    const workbook: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
+    XLSX.writeFile(workbook, `invoices-table${formatDate(Date.now())}.xlsx`);
+  }
+  
+  
+
+
   sortData = (colData: ItableValues): void => {
     try {
       const key = colData.controlName;
@@ -68,7 +81,6 @@ export class InvoicesComponent {
 
       
       
-      // Update sorted data and current sort column
       this.sortedData.set(newSortedData);
       this.currentSortColumn.set(key);
       
@@ -184,6 +196,12 @@ export class InvoicesComponent {
   
 
   taskeInputs:IgenericInput[]=[
+    {
+      type:'exel',
+      placeHolder:'יצוא מידע לקובץ אקסל',
+      options:[],
+      icon:'../../../assets/images/exel.svg',
+    },
     {
       type:'text',
       placeHolder:'חיפוש לפי מספר חשבונית או שם לקוח',

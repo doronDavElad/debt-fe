@@ -1,6 +1,13 @@
 
 <div class="input_container"  *ngFor="let input of taskeInputs ; let i = index">
     <div [ngSwitch]="input.type" class="input_type">
+      <div *ngSwitchCase="'exel'" class="export_to_exel_container">
+        <button class="exel_btn" (click)="exportToExcel()">
+          <img class="exel_img" [src]="input.icon" [alt]="input.placeHolder">
+        </button>
+      </div>
+
+
         <div *ngSwitchCase="'text'" class="text_input_container">
            <label *ngIf="input.label">{{ input.label }}</label>
            <img class="search_img" [src]="input.icon" alt="">
