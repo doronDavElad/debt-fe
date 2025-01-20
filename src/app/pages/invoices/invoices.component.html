@@ -17,9 +17,13 @@
         </div>
         <app-generic-table 
         [allData]="tableInvoiceMockData"
-        [tableData]="tableData"
+        [tableData]="sortedData().length > 0 ? sortedData() : tableData()"
         [tabsDataToTable]="dataToTable"
         [taskeInputs]="taskeInputs"
+        [sortData]="sortData.bind(this)"
+        [currentSortColumn]="currentSortColumn()"
+
+        
 
 
         ></app-generic-table>

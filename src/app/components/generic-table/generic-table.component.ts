@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { Itabs_sub_header } from '../sub-header/subHeader_mockData';
 import { IgenericInput } from '../generic-input/genericInput.interface';
 import { GenericInputComponent } from "../generic-input/generic-input.component";
+import { formatDate } from '../../helpers/tableHelpers';
 
 @Component({
   selector: 'app-generic-table',
@@ -17,7 +18,12 @@ export class GenericTableComponent implements OnInit {
   @Input() tableData: ITableRowData[] = [];
   @Input() tabsDataToTable!: Itabs_sub_header;
   @Input() taskeInputs: IgenericInput[] = [];
-  ngOnInit(): void {
+  @Input() sortData: (colData: ItableValues) => void = () => {};
+  @Input() currentSortColumn: string | null = null;
+  formatDate = formatDate;
+
+
+    ngOnInit(): void {
     // console.log('allData:', this.taskeInputs); 
   }
 

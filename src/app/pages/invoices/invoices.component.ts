@@ -1,11 +1,12 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, signal } from '@angular/core';
 import { SubHeaderComponent } from '../../components/sub-header/sub-header.component';
 import { GenericTableComponent } from '../../components/generic-table/generic-table.component';
-import { ItableValues } from '../../components/generic-table/table-interface';
+import { ITableRowData, ItableValues } from '../../components/generic-table/table-interface';
 import { invoicesTable } from '../../mockData/bills';
 import { Itabs_sub_header } from '../../components/sub-header/subHeader_mockData';
 import { IgenericInput } from '../../components/generic-input/genericInput.interface';
 import { GenericInputComponent } from "../../components/generic-input/generic-input.component";
+import { InvoiceService } from './invoice.service';
 
 @Component({
   selector: 'app-invoices',
@@ -18,9 +19,63 @@ import { GenericInputComponent } from "../../components/generic-input/generic-in
 })
 export class InvoicesComponent {
 
-  tableData: any[] = invoicesTable;
+  tableData = signal<ITableRowData[]>([]);
+  sortedData = signal<ITableRowData[]>([]);
 
+  currentSortColumn = signal<string | null>(null);
+
+
+  constructor(private invoiceService: InvoiceService) {}
+
+  ngOnInit(): void {
+    console.log(this.tableInvoiceMockData);
+    
+    this.invoiceService.getInvoiceData().subscribe((data) => {
+      this.tableData.set(data); 
+    });
+  }
   
+  sortData = (colData: ItableValues): void => {
+    try {
+      const key = colData.controlName;
+      
+      if (this.currentSortColumn() === key) {
+        this.sortedData.set([]);
+        this.currentSortColumn.set(null);
+        return;
+      }
+      
+      const dataToSort = this.sortedData().length > 0 ? this.sortedData() : this.tableData();
+      
+      const newSortedData = [...dataToSort].sort((a, b) => {
+        const valueA = a[key];
+        const valueB = b[key];
+        
+        if (typeof valueA === "string" && typeof valueB === "string") {
+          return valueA.localeCompare(valueB);
+        } else if (typeof valueA === "number" && typeof valueB === "number") {
+          return valueA - valueB;
+        } else {
+          return 0;
+        }
+      });
+      
+      // Update sorted data and current sort column
+      this.sortedData.set(newSortedData);
+      this.currentSortColumn.set(key);
+      
+    } catch (error) {
+      console.error("Error during sorting:", error);
+    }
+  }
+  
+  
+  
+  
+  
+  
+  
+
   tableInvoiceMockData:ItableValues[]=[
     {
       controlName: 'customerId',
@@ -55,7 +110,7 @@ export class InvoicesComponent {
     },
     {
       controlName: 'secondDate',
-      type: 'text',
+      type: 'date',
       title: 'תאריך ערך',
       sort:true
     },

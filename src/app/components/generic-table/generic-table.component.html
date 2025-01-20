@@ -13,7 +13,7 @@
                 <th class="titles" *ngFor="let colData of allData">
                     <div class="title_container">
                         <p class="title">{{ colData.title }}</p>
-                        <button class="sort_btn" *ngIf="colData.sort">
+                        <button class="sort_btn" *ngIf="colData.sort" (click)="sortData(colData)">
                             <img class="sort_image" src="../../../assets/images/arrow_down.svg" alt="arrow down sort image">
                         </button>
                     </div>
@@ -30,6 +30,8 @@
                     <div class="switch_container" [ngSwitch]="column.type">
 
                         <div class="text"  *ngSwitchCase="'text'">{{rowData[column.controlName]}}</div>
+                        <div class="text"  *ngSwitchCase="'date'">{{formatDate(rowData[column.controlName])}}</div>
+                    
                         <span  *ngSwitchCase="'status'" class="status_cintainer">
                         <div 
                        
