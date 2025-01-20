@@ -149,3 +149,78 @@
     }
 
 }
+
+// ::ng-deep {
+//     .custom_tooltip {
+//       background-color: $tooltip_color ;
+//       color: black !important;
+//       font-size: 14px !important;
+//     //   padding: 16px !important;
+//       border-radius: 4px !important;
+//       box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15) !important;
+//       max-width: 250px !important;
+//       text-align: right !important; // For RTL text
+//       direction: rtl !important; // For RTL layout
+//       border: $tooltip_border;
+      
+//       // Optional: Add an arrow
+//       &.mat-mdc-tooltip-panel-below::after {
+//         content: '';
+//         position: absolute;
+//         background-color: white !important;
+//         // top: -5px;
+//         // left: 50%;
+//         // transform: translateX(-50%) rotate(45deg);
+//         // width: 10px;
+//         // height: 10px;
+//         // background-color: white;
+//         // border-top: 1px solid #E0E0E0;
+//         // border-left: 1px solid #E0E0E0;
+//       }
+//     }
+//   }
+::ng-deep {
+    
+    .custom_tooltip {
+      // Base styles
+      background-color: white !important;
+      color: black !important;
+      font-size: 14px !important;
+      padding: 16px !important;
+      border-radius: 4px !important;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15) !important;
+      max-width: 250px !important;
+      text-align: right !important;
+      direction: rtl !important;
+      border: 1px solid #E0E0E0 !important;
+      
+      // Animation
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 150ms ease-in-out, transform 150ms ease-in-out !important;
+      
+      &.mat-mdc-tooltip-show {
+        opacity: 1;
+        transform: scale(1);
+      }
+      
+      // Arrow
+      &.mat-mdc-tooltip-panel-below::after {
+        content: '';
+        position: absolute;
+        top: -5px;
+        left: 50%;
+        transform: translateX(-50%) rotate(45deg);
+        width: 10px;
+        height: 10px;
+        background-color: white !important;
+        border-top: 1px solid #E0E0E0;
+        border-left: 1px solid #E0E0E0;
+      }
+      
+      // Optional: hover state
+      &:hover {
+        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2) !important;
+      }
+    }
+  }

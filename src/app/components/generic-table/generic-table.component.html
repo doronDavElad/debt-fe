@@ -47,8 +47,16 @@
                             'agreed': rowData[column.controlName] === 'אושר לתשלום'
                         }"
                     >
-                        <img  *ngIf="rowData[column.controlName] === 'לא נשלחה'"
-                        src="../../../assets/images/indicator.svg" alt="didnt send indicator">
+                    <img  
+                    *ngIf="rowData[column.controlName] === 'לא נשלחה'"
+                    src="../../../assets/images/indicator.svg" 
+                    alt="didnt send indicator"
+                    [matTooltip]="'שליחת החשבונית נכשלה. יש לבדוק שהמייל תקין.'"
+                    [matTooltipPosition]="'below'"
+                    [matTooltipShowDelay]="0"
+                    matTooltipClass="custom_tooltip"
+                 
+                    >
                         <p>
                             {{ rowData[column.controlName] }}
                         </p>
