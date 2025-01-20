@@ -67,6 +67,11 @@
             height: 60px;
             &:last-child{
                 border: none;
+
+            
+            }
+            &:hover{
+                background-color:$table_hover;
             }
             .table_data_container{
                 // border-bottom: 1px solid black;
