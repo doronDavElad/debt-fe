@@ -37,6 +37,7 @@
             
        .item_container{
         display: flex;
+        padding-inline-start: 20px;
 
 
             .img_container{
@@ -51,9 +52,12 @@
                 ;
             }
             .left_container{
+                margin-inline-start: 8px;
                 .count_data{
                     font-size: 40px;
                     font-weight: 500;
+                    place-self: start;
+
 
                 }
                 .title{

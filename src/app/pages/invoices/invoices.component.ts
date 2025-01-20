@@ -21,6 +21,7 @@ export class InvoicesComponent {
 
   tableData = signal<ITableRowData[]>([]);
   sortedData = signal<ITableRowData[]>([]);
+  filteredData: ITableRowData[] = [];
 
   currentSortColumn = signal<string | null>(null);
 
@@ -29,18 +30,23 @@ export class InvoicesComponent {
 
   ngOnInit(): void {
     console.log(this.tableInvoiceMockData);
+    // this.filteredData = [...this.tableData];
     
     this.invoiceService.getInvoiceData().subscribe((data) => {
       this.tableData.set(data); 
+      this.sortedData.set(data); 
     });
   }
-  
+  // searchData=(text:string):void=>{
+  //   console.log(text);
+    
+  // }
   sortData = (colData: ItableValues): void => {
     try {
       const key = colData.controlName;
       
       if (this.currentSortColumn() === key) {
-        this.sortedData.set([]);
+        this.sortedData.set(this.tableData());
         this.currentSortColumn.set(null);
         return;
       }
@@ -59,6 +65,8 @@ export class InvoicesComponent {
           return 0;
         }
       });
+
+      
       
       // Update sorted data and current sort column
       this.sortedData.set(newSortedData);
@@ -71,9 +79,27 @@ export class InvoicesComponent {
   
   
   
+  handleInputChange(event: { value: string; index: number }): void {
+    console.log('Input Value Changed:', event);
+  }
   
-  
-  
+    handleOptionSelected(event: { option: string; index: number }): void {
+    console.log('Option Selected:', event);
+    // Handle the selected option
+    this.taskeInputs[event.index].value = event.option;
+    const selectedStatus = event.option.toLowerCase();
+
+    const filteredData=this.tableData().filter((row)=>{
+      if (selectedStatus === "הכל"){
+        return this.tableData
+
+      }
+      
+      return row.status?.toLowerCase()=== selectedStatus
+    })
+    this.sortedData.set(filteredData)
+  }
+
   
 
   tableInvoiceMockData:ItableValues[]=[
@@ -134,11 +160,28 @@ export class InvoicesComponent {
     },
   ]
 
-  handleInputOutput(emittedData:{value:string,index:number}){
+  handleInputOutput(emittedData: { value: string, index: number }): void {
     console.log(emittedData);
-    
-
+  
+    const searchValue = emittedData.value.toLowerCase();
+  
+    // If the search input is empty, reset to original tableData
+    if (searchValue === "") {
+      this.sortedData.set(this.tableData());
+    } else {
+      // Filter the data by customerName and billNumber
+      const filteredData = this.tableData().filter((row) => {
+        return (
+          row.customerName?.toLowerCase().includes(searchValue) ||
+          row.billNumber?.toLowerCase().includes(searchValue)
+        );
+      });
+  
+      // Update sortedData with filtered data
+      this.sortedData.set(filteredData);
+    }
   }
+  
 
   taskeInputs:IgenericInput[]=[
     {

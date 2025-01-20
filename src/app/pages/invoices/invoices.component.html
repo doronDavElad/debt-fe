@@ -12,15 +12,18 @@
             class="inputs"
             [taskeInputs]="taskeInputs"
             (InputValue)="handleInputOutput($event)"
+            (optionSelected)="handleOptionSelected($event)"
+            
          
             ></app-generic-input>
         </div>
         <app-generic-table 
         [allData]="tableInvoiceMockData"
-        [tableData]="sortedData().length > 0 ? sortedData() : tableData()"
+        [tableData]="sortedData()"
         [tabsDataToTable]="dataToTable"
         [taskeInputs]="taskeInputs"
         [sortData]="sortData.bind(this)"
+       
         [currentSortColumn]="currentSortColumn()"
 
         

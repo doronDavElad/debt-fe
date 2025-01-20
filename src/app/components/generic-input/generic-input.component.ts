@@ -13,6 +13,8 @@ import { FormsModule } from '@angular/forms';
 export class GenericInputComponent {
   @Input() taskeInputs: IgenericInput[] = [];
   @Output() InputValue:EventEmitter<{value:string,index:number}>=new EventEmitter();
+  @Output() optionSelected: EventEmitter<{ option: string; index: number }> = new EventEmitter(); // Add an event emitter for selecting options
+
   isDropdownOpen: boolean = false; 
   onChnageValue(event: Event,index:number): void {
     const {value} = event.target as HTMLInputElement;
@@ -22,14 +24,16 @@ export class GenericInputComponent {
   toggleDropdown(): void {
     this.isDropdownOpen = !this.isDropdownOpen; // Toggle dropdown state
   }
-  selectOption(option: string,index:number): void {
-    // this.selectedOption = option; // Update the selected option
-    // this.isDropdownOpen = false; // Close the dropdown
-    console.log('Selected Option:', option); 
-    // Emit or log selected option
+  // selectOption(option: string,index:number): void {
+  //   console.log('Selected Option:', option); 
+  //   this.taskeInputs[index].value = option;
+  //   this.isDropdownOpen = false;
+  //   this.InputValue.emit({ value: option, index });
+  // }
+  selectOption(option: string, index: number): void {
+    this.optionSelected.emit({ option, index });
     this.taskeInputs[index].value = option;
     this.isDropdownOpen = false;
-    this.InputValue.emit({ value: option, index });
   }
 
   ngOnInit(): void {
