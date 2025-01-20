@@ -8,7 +8,6 @@ import { IgenericInput } from '../../components/generic-input/genericInput.inter
 import { GenericInputComponent } from "../../components/generic-input/generic-input.component";
 import { InvoiceService } from './invoice.service';
 import * as XLSX from 'xlsx';
-import { formatDate } from '../../helpers/tableHelpers';
 
 @Component({
   selector: 'app-invoices',
@@ -35,20 +34,20 @@ export class InvoicesComponent {
 
   ngOnInit(): void {
     console.log(this.tableInvoiceMockData);
-    // this.filteredData = [...this.tableData];
     
     this.invoiceService.getInvoiceData().subscribe((data) => {
       this.tableData.set(data); 
       this.sortedData.set(data); 
     });
   }
+ 
+
   exportToExcel(): void {
-    
     const data = this.sortedData(); 
     const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(data);
     const workbook: XLSX.WorkBook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
-    XLSX.writeFile(workbook, `invoices-table${formatDate(Date.now())}.xlsx`);
+    XLSX.writeFile(workbook, `invoices-table-${Date.now()}.xlsx`);
   }
   
   
@@ -97,7 +96,6 @@ export class InvoicesComponent {
   
     handleOptionSelected(event: { option: string; index: number }): void {
     console.log('Option Selected:', event);
-    // Handle the selected option
     this.taskeInputs[event.index].value = event.option;
     const selectedStatus = event.option.toLowerCase();
 
