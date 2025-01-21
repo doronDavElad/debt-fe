@@ -24,14 +24,23 @@
         [tabsDataToTable]="dataToTable"
         [taskeInputs]="taskeInputs"
         [sortData]="sortData.bind(this)"
-       
         [currentSortColumn]="currentSortColumn()"
-
+        (toggleDrawer)="toggleDrawer()"
         
-
-
+        
+        
+        
         ></app-generic-table>
-
+        
     </div>
+    <p>
+
+        {{isOpenDrawer}}
+    </p>
+    <app-drawer
+    *ngIf="isOpenDrawer"
+    (toggleDrawer)="toggleDrawer()"
+    [drawerdata]="drawerdata"
+    ></app-drawer>
 
 

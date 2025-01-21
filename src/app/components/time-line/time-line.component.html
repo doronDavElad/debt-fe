@@ -1,0 +1,16 @@
+<div class="timeline">
+    <div class="timeline-item" *ngFor="let item of timelineData">
+      <div class="opposite-content">{{ item.date }}</div>
+      <div class="separator">
+        <div class="dot">
+            <div class="inner_dot"></div>
+        </div>
+        <div class="connector"></div>
+      </div>
+      <div class="content">
+        <p class="log">{{ item.log_title }}</p>
+        <p *ngIf="item.sub_log" class="sub_log">{{item.sub_log}}</p>
+      </div>
+    </div>
+  </div>
+  

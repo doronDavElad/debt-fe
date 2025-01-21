@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ITableRowData, ItableValues,  TableData } from './table-interface';
 import { CommonModule } from '@angular/common';
 import { Itabs_sub_header } from '../sub-header/subHeader_mockData';
@@ -22,8 +22,10 @@ export class GenericTableComponent implements OnInit {
   @Input() sortData: (colData: ItableValues) => void = () => {};
   @Input() currentSortColumn: string | null = null;
   formatDate = formatDate;
-
-
+  @Output() openDrawer = new EventEmitter<void>();
+  openDrawerAction() {
+    this.openDrawer.emit();
+  }
     ngOnInit(): void {
     // console.log('allData:', this.taskeInputs); 
   }

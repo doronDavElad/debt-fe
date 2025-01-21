@@ -1,0 +1,81 @@
+<div class="drawer_container">
+    <div class="close_modal">
+        <button class="close_modal_btn" (click)="close()"><img src="../../../assets/images/exit.svg" alt="close modal"></button>
+    </div>
+    <div class="main_data_and_options">
+        <div class="top_header">
+        <div class="title_and_data">
+       <div class="title_container">
+            <p class="title">חשבוניות במעקב</p>
+            <p class="id_number">{{drawerdata.bill_number}}</p>
+            <div class="payment_status">{{drawerdata.order_status}}</div>
+       </div>
+       <div class="dates_container">
+      <p class="key">הופקה <span class="">{{formatDate(drawerdata.start_date)}} </span> </p>
+      <p class="key">תאריך ערך <span class="value">{{formatDate(drawerdata.last_update_data)}} </span> </p>       
+        </div>
+
+        </div>
+        <div class="options">
+            <button>
+                <img src="../../../assets/images/flag.svg" alt="mark with flag">
+            </button>
+            <button>
+                <img src="../../../assets/images/option_sign.svg" alt="mark with flag">
+            </button>
+        </div>
+    </div>
+    </div>
+
+    <div class="payment_container">
+        <div class="start_container">
+            <p class="key">סכום<span class="value">{{drawerdata.payment_amount}}</span></p>
+            <p class="key">סכום כולל מע"מ<span class="value">{{drawerdata.payment_with_tax}}</span></p>
+        </div>
+        <div class="middle_container">
+            <p class="key">סטטוס בסאפ<span class="value">{{drawerdata.sap_status}}</span></p>
+            <p class="key">גורם מטפל<span class="value">{{drawerdata.elad_employee}}</span></p>
+        </div>
+        <div class="end_container">
+            <p class="key">חטיבה<span class="value">{{drawerdata.elad_unit}}</span></p>
+            <div class="user">
+                <div class="name_and_img">
+
+                    <img class="user_img" src="../../../assets/images/user_sign.svg" alt="">
+                    <p class="value">{{drawerdata.elad_contact.name}}</p>
+                </div>
+                <img class="chevron_img" src="../../../assets/images/chevron_down.svg" alt="">
+                
+            </div>        </div>
+    </div>
+
+
+    <div class="customer_container">
+        <div class="start_container">
+            <p class="key">קוד לקוח <span class="value">{{drawerdata.customer_number}}</span> </p>
+            <p class="key">קוד לקוח <span class="value">{{drawerdata.business_id}}</span></p>
+            <p class="key">שם לקוח <span class="mark_value">{{drawerdata.customer_name}}</span></p>
+        </div>
+        <div class="middle_container">
+            <p class="key">פרוייקט<span class="value">{{drawerdata.project_id}}</span></p>
+            <p class="key">חוזה<span class="value">{{drawerdata.contract_id}}</span></p>
+            <p class="key">הזמנה<span class="value">{{drawerdata.order_id}}</span></p>
+        </div>
+        <div class="end_container">
+            <div *ngFor="let contact of drawerdata.contact_data" class="user">
+                <div class="name_and_img">
+                    <img class="user_img" src="../../../assets/images/user_sign.svg" alt="">
+                    <p class="value">{{contact.name}} </p>
+                </div>
+                <img class="chevron_img" src="../../../assets/images/chevron_down.svg" alt="">
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="event_log">
+        <app-time-line></app-time-line>
+      
+    </div>
+</div>

@@ -1,0 +1,176 @@
+@import '../../style/main.scss';
+
+.drawer_container{
+width: 872px;  
+height: 100%;
+// border: 3px solid red;
+position: absolute;
+top: 0;
+left: 0;
+background-color: $background-white ;
+padding: 24px;
+box-shadow: $drawer-shadow;
+position: absolute
+;
+.close_modal{
+    position: absolute;
+    left: 31px;
+    .close_modal_btn{
+        position: relative;
+    }
+}
+.main_data_and_options,.payment_container,.customer_container{
+    margin-bottom: 16px;
+}
+
+    .main_data_and_options{
+        height: 134px;
+        // border: 1px solid blue;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .top_header{
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            height: 62px;
+            // border: 1px solid green;
+       
+    .title_and_data{
+        height: 62px;
+        // border: 1px solid red;
+        .title_container{
+            width: 100%;
+            display: flex;
+            .title{
+                display: inline-block;
+                // margin-inline-end: 8px;
+                font-size: 22px;
+                font-weight: 700;
+                
+            }
+            .id_number{
+                font-size: 20px;
+                margin-inline-start: 8px;
+                margin-inline-end: 12px;
+            }
+            .payment_status{
+                border: 1px solid black;
+                border-radius: 50%;
+                width: 52px;
+                text-align: center;
+
+            }
+            .key{
+                display: inline-block;
+                margin-inline-end: 12px;
+                font-size: 20px;
+                font-weight: 400;
+                
+                .payment_status{
+                    border: 1px solid black;
+                    border-radius: 16px;
+                    width: 52px;
+                    display: inline-block;
+                    text-align: center;
+                    font-size: 14px;
+                }
+            }
+
+        }
+        .dates_container{
+            p{
+                display: inline-block;
+                margin-inline-end: 24px;
+                margin-top: 10px;
+                font-size: 18px;
+                color:$subHeader_title ;
+
+                .value{
+                    color: black;
+
+                }
+            }
+
+        }
+
+    }
+    .options{
+
+    }
+} }
+
+
+
+
+
+.payment_container{
+
+    border-bottom: 1px solid grey;
+}
+.customer_container ,.payment_container{
+    display: flex;
+    justify-content: space-between;
+    height: 130px;
+    // border: 1px solid red;
+    .start_container,.middle_container,.end_container{
+        flex: 1;
+
+        .user{
+            display: flex;
+            justify-content: space-between;
+            .name_and_img{
+
+                
+                .value{
+                    font-size: 18px;
+                    font-weight: 500;
+                    width: 140px;
+                    border: 1px solid red;
+                    display: inline;
+                    
+                }
+                
+                .user_img{
+                    width: 20px;
+                    height: 20px;
+                    margin-inline-end: 4px;
+                    
+                }
+            }
+            .chevron_img{
+                width: 12px;
+                height: 6px;
+                
+            }
+        }
+
+
+        .key{
+            font-size: 18px;
+            font-weight: 400;
+            color: $subHeader_title;
+            height: 30px;
+
+        
+        .value{
+            font-size: 18px ;
+            font-weight: 500;
+            color: black ;
+            margin-inline-start: 4px;
+        }
+        }
+        .mark_value{
+            color:$blueText ;
+        }
+    }
+    // .end_container{
+
+      
+
+    // }
+
+}
+}

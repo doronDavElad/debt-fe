@@ -8,11 +8,14 @@ import { IgenericInput } from '../../components/generic-input/genericInput.inter
 import { GenericInputComponent } from "../../components/generic-input/generic-input.component";
 import { InvoiceService } from './invoice.service';
 import * as XLSX from 'xlsx';
+import { DrawerComponent } from "../../components/drawer/drawer.component";
+import { CommonModule } from '@angular/common';
+import { IDrawerOrders } from '../../components/drawer/drawer.interface';
 
 @Component({
   selector: 'app-invoices',
   standalone: true,
-  imports: [SubHeaderComponent, GenericTableComponent, GenericInputComponent],
+  imports: [CommonModule, SubHeaderComponent, GenericTableComponent, GenericInputComponent, DrawerComponent],
   templateUrl: './invoices.component.html',
   styleUrl: './invoices.component.scss',
   encapsulation: ViewEncapsulation.None,
@@ -23,9 +26,9 @@ export class InvoicesComponent {
   tableData = signal<ITableRowData[]>([]);
   sortedData = signal<ITableRowData[]>([]);
   filteredData: ITableRowData[] = [];
-
+  isOpenDrawer:boolean = true;
   currentSortColumn = signal<string | null>(null);
-
+  drawerdata:IDrawerOrders={} as IDrawerOrders
 
   constructor(private invoiceService: InvoiceService) {
     this.exportToExcel = this.exportToExcel.bind(this);
@@ -33,14 +36,21 @@ export class InvoicesComponent {
   }
 
   ngOnInit(): void {
-    console.log(this.tableInvoiceMockData);
+    console.log('isOpenDrawer on init:', this.isOpenDrawer);
     
     this.invoiceService.getInvoiceData().subscribe((data) => {
       this.tableData.set(data); 
       this.sortedData.set(data); 
     });
+
+    this.invoiceService.getDrawerData().subscribe((data) => {
+      this.drawerdata = data;  // Assign the drawer data
+    });
+
   }
- 
+  toggleDrawer() {
+    this.isOpenDrawer = !this.isOpenDrawer;
+  }
 
   exportToExcel(): void {
     const data = this.sortedData(); 

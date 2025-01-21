@@ -1,0 +1,75 @@
+@import '../../style/main.scss';
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .timeline-item {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .opposite-content {
+    font-size: 18px;
+    font-weight: 400;
+    // flex: 1 1 auto;
+    // text-align: right;
+    width: 106px;
+  }
+  
+  .separator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 16px;
+    margin-inline: 18px;
+  
+    .dot {
+        width: 12px;
+        height: 12px;
+        background-color: white;
+        border-radius: 50%;
+        border: 1px solid blue;
+        position: relative;
+        .inner_dot{
+          width: 6px;
+          height: 6px;
+          background-color: #3f51b5;
+          border-radius: 50%;
+          position: absolute;  
+            top: 50%;        
+            left: 50%;           
+            transform: translate(-50%, -50%); 
+          
+
+      }
+    }
+  
+    .connector {
+      width: 2px;
+      height: 70px;
+      background-color: #bdbdbd;
+      
+    }
+  }
+  
+  .content {
+    flex: 2;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    max-width: 488px;
+
+    .log{
+        font-size: 18px;
+        font-weight: 400;
+    }
+    .sub_log{
+        font-size: 16px;
+        font-weight: 400;
+        color: $subHeader_title;
+
+    }
+  }
+  
