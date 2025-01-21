@@ -1,4 +1,3 @@
-<p>invoices works!</p>
 
     <div class="site_content_container page_layout">
     <app-sub-header  (tabsDataToTable)="onTabsDataReceived($event)"></app-sub-header>
@@ -14,6 +13,8 @@
             (InputValue)="handleInputOutput($event)"
             (optionSelected)="handleOptionSelected($event)"
             [exportToExcel]="exportToExcel"
+            (toggleDrawer)="toggleDrawer()"
+
             
          
             ></app-generic-input>

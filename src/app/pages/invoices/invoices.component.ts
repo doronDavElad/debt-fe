@@ -26,7 +26,7 @@ export class InvoicesComponent {
   tableData = signal<ITableRowData[]>([]);
   sortedData = signal<ITableRowData[]>([]);
   filteredData: ITableRowData[] = [];
-  isOpenDrawer:boolean = true;
+  isOpenDrawer:boolean = false;
   currentSortColumn = signal<string | null>(null);
   drawerdata:IDrawerOrders={} as IDrawerOrders
 
@@ -48,6 +48,7 @@ export class InvoicesComponent {
     });
 
   }
+  
   toggleDrawer() {
     this.isOpenDrawer = !this.isOpenDrawer;
   }
@@ -128,6 +129,13 @@ export class InvoicesComponent {
       type: 'text',
       title: 'קוד לקוח',
       sort:true
+      
+    },
+    {
+      controlName: 'flag',
+      type: 'flag',
+      title: '',
+      sort:false
       
     },
     {
