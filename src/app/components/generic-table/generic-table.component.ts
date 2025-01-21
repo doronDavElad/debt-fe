@@ -23,11 +23,19 @@ export class GenericTableComponent implements OnInit {
   @Input() currentSortColumn: string | null = null;
   formatDate = formatDate;
   @Output() openDrawer = new EventEmitter<void>();
+  @Output() toggleDrawer = new EventEmitter<void>();
+
   openDrawerAction() {
     this.openDrawer.emit();
   }
     ngOnInit(): void {
     // console.log('allData:', this.taskeInputs); 
+  }
+  close(rowData:ITableRowData) {    
+    console.log(rowData);
+    //need to make fetch data for rowData
+    
+    this.toggleDrawer.emit();
   }
 
 

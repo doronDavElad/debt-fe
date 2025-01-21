@@ -10,22 +10,27 @@
     <table class="table">
         <thead class="table_head">
             <tr class="title_row">
-                <th class="titles" *ngFor="let colData of allData">
-                    <div class="title_container">
-                        <p class="title">{{ colData.title }}</p>
-                        <button class="sort_btn" *ngIf="colData.sort" (click)="sortData(colData)">
-                            <img class="sort_image" src="../../../assets/images/arrow_down.svg" alt="arrow down sort image">
-                        </button>
-                    </div>
-                </th>
+             
+
+                    <th class="titles" *ngFor="let colData of allData">
+                        <div class="title_container">
+                            <p class="title">{{ colData.title }}</p>
+                            <button class="sort_btn" *ngIf="colData.sort" (click)="sortData(colData)">
+                                <img class="sort_image" src="../../../assets/images/arrow_down.svg" alt="arrow down sort image">
+                            </button>
+                        </div>
+                    </th>
             </tr>
         </thead>
         <tbody class="table_body" *ngIf="tableData">
             <ng-container *ngFor="let rowData of tableData; let j = index">
 
-                <tr class="table_row">
+                <tr class="table_row" 
+                (click)="close(rowData)"
+                tabindex="0"
+                role="button">
                     <td class="table_data_container"
-                    *ngFor="let column of allData"
+                    *ngFor="let column of allData"   
                     >
                     <div class="switch_container" [ngSwitch]="column.type">
 

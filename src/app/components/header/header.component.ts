@@ -2,10 +2,11 @@ import { Component, Input } from '@angular/core';
 import { HeaderLinksInterface } from './header-interface.interface';
 import { CommonModule } from '@angular/common';
 import { SearchInputComponent } from "../search-input/search-input.component"; 
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, SearchInputComponent,SearchInputComponent],
+  imports: [CommonModule, SearchInputComponent,SearchInputComponent,RouterModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
