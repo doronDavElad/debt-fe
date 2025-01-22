@@ -1,9 +1,21 @@
 <p>customers works!</p>
-<div class="page_layout">
+<div class="page_layout flexPage">
 
     <app-incoives-summary
     [invoicesData]="invoicesData"
     [selectedTab]="selectedTab"
     [highestPrice]="highestPrice"
     ></app-incoives-summary>
+
+    <div class="container">  
+        <h2>סה"כ תקבולים פתוחים</h2>  
+        
+        <app-invoices-display-data
+        [invoicesData]="totalData"
+        [highestPrice]="highestPrice"
+        [TableStructure]="totalDataStructur">
+    </app-invoices-display-data>
+</div>
+
+    <!-- <app-total-open-invoices></app-total-open-invoices> -->
 </div>

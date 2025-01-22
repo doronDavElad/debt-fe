@@ -17,7 +17,6 @@ export class AppComponent {
 
 
   updateSearchData(newData: string): void {
-    console.log(newData);
     
     this.searchData = newData;
     

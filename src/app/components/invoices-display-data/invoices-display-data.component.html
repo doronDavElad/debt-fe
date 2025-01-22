@@ -1,19 +1,29 @@
 <table class="table">
     <tbody class="table_body">
         <tr class="row" *ngFor="let item of dataToDisplay">
-            <td class="name">
+            <ng-container *ngFor="let column of TableStructure">
+                <ng-container [ngSwitch]="column.type">
+            <td  class="name" *ngSwitchCase="'text'">
                 {{item.name}}
             </td>
-            <td class="price">
+            <td class="price" *ngSwitchCase="'price'">
                 &#8362;    {{item.totalAmount}}
             </td>
-            <td class="graph_container">
+            <td class="graph_container" *ngSwitchCase="'graph'">
                 <div class="graph" [style.width]="getGraphWidth(item.totalAmount)">
                 </div>
             </td>
-            <td class="img">
+            <td class="img" *ngSwitchCase="'indicator'">
                 <img *ngIf="item.flag" src="../../../assets/images/yellow_mark.svg" alt="">
             </td>
+            <td class="img" *ngSwitchCase="'date'">
+               {{item.date}}
+            </td>
+            <td class="img" *ngSwitchCase="'status'">
+               {{item.status}}
+            </td>
+        </ng-container>
+        </ng-container>
         </tr>
 
     </tbody>

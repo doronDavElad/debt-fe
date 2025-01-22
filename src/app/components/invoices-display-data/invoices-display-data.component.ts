@@ -1,6 +1,7 @@
 import { Component, Input, input } from '@angular/core';
 import { IpaidInvoices } from '../incoives-summary/invoices-summary.interface';
 import { CommonModule } from '@angular/common';
+import { IInvoicesTable } from './invoices-display-data.interface';
 
 @Component({
   selector: 'app-invoices-display-data',
@@ -12,6 +13,7 @@ import { CommonModule } from '@angular/common';
 export class InvoicesDisplayDataComponent {
   @Input() invoicesData: IpaidInvoices[] = [];
   @Input() highestPrice: number = 0;
+  @Input() TableStructure: IInvoicesTable[] = [];
   totalPages:number=0
   currentPage:number=1
   itemsPerPage: number = 10;

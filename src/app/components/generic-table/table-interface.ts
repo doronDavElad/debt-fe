@@ -12,7 +12,6 @@ export interface ITableRowData {
     eladEmployee?: string,
     status?:string 
     customerName?:string 
-
 }
 export interface TableData {
     tableValues?: ItableValues[];
