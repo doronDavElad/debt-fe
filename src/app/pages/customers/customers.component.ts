@@ -3,14 +3,13 @@ import { Component } from '@angular/core';
 import { IncoivesSummaryComponent } from "../../components/incoives-summary/incoives-summary.component";
 import { IpaidInvoices } from '../../components/incoives-summary/invoices-summary.interface';
 import { CustomersServiceService } from './customers-service.service';
-import { TotalOpenInvoicesComponent } from "../../components/total-open-invoices/total-open-invoices.component";
 import { InvoicesDisplayDataComponent } from "../../components/invoices-display-data/invoices-display-data.component";
 import { IInvoicesTable } from '../../components/invoices-display-data/invoices-display-data.interface';
 
 @Component({
   selector: 'app-customers',
   standalone: true,
-  imports: [IncoivesSummaryComponent, TotalOpenInvoicesComponent, InvoicesDisplayDataComponent],
+  imports: [IncoivesSummaryComponent, InvoicesDisplayDataComponent],
   providers: [CustomersServiceService],
   templateUrl: './customers.component.html',
   styleUrl: './customers.component.scss'

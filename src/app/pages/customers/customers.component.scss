@@ -2,15 +2,37 @@
 
 .flexPage{
     display: flex;
+    gap: 32px;
 }
 .container{
     width: 652px;
-    border: 1px solid red;
+    height: 704px;
     background-color:  $background-white;
     border-radius: 8px;
     padding:16px ;
 
-   
+   .title{
+    height: 36px;
+    font-size: 22px;
+    font-weight: 500;
+}
+.prices_container{
+    height: 52px;
+    display: flex;
+    gap: 16px;
+    // border: 1px solid blue;
+
+    .item{
+        height: 52px;
+        border: 1px solid $border_price_box;
+        background-color: $price_box_backgrond;
+        width: 149px;
+        font-size: 30px;
+        align-content: center;
+        text-align: center;
+        border-radius: 8px;
+    }
+}
 
       
 }

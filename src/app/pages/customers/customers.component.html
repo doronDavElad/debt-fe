@@ -8,7 +8,18 @@
     ></app-incoives-summary>
 
     <div class="container">  
-        <h2>סה"כ תקבולים פתוחים</h2>  
+        <h2 class="title">סה"כ תקבולים פתוחים</h2> 
+        <div class="prices_container">
+            <p class="item">
+                &#8362;{{'12449.56'.toLocaleString()}}
+            </p>
+            <p class="item">
+                &#36;{{'12449.56'.toLocaleString()}}
+            </p>
+            <p class="item">
+                &#8364;{{'12449.56'.toLocaleString()}}
+            </p>
+        </div>
         
         <app-invoices-display-data
         [invoicesData]="totalData"
@@ -17,5 +28,4 @@
     </app-invoices-display-data>
 </div>
 
-    <!-- <app-total-open-invoices></app-total-open-invoices> -->
 </div>
