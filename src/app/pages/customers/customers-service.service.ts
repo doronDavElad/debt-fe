@@ -9,6 +9,7 @@ export class CustomersServiceService {
 
   //should be fetch or sort to get the right invoices data
   invoicesData: IpaidInvoices[] = paidInvoices;
+  selectedTab:string="נדחו"
   
   highestPrice:number=0
   constructor() {

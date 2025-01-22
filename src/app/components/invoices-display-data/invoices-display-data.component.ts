@@ -27,12 +27,19 @@ export class InvoicesDisplayDataComponent {
   }
 
   pagination(action: string): void {
+    
     if (action === 'next' && this.currentPage < this.totalPages) {
+      console.log(1);
       this.currentPage++;
-    } else if (action === 'prev' && this.currentPage > 1) {
-      this.currentPage--;
+      console.log(2);
+      this.updateDisplayedInvoices();
+      return; // Exit early to prevent the second block from running
     }
-    this.updateDisplayedInvoices();
+    
+    if (action === 'prev' && this.currentPage > 1) {
+      this.currentPage--;
+      this.updateDisplayedInvoices();
+    }
   }
 
   updateDisplayedInvoices(): IpaidInvoices[] {

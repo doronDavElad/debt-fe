@@ -1,7 +1,10 @@
 
 <div class="container">
     <h2 class="title">keuju,</h2>
-    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+    <mat-tab-group mat-stretch-tabs="false"
+     mat-align-tabs="start"
+     (selectedTabChange)="onTabChange($event)"
+     >
         <mat-tab label="נדחו">
             <app-invoices-display-data
             [invoicesData]="invoicesData"

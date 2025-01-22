@@ -21,15 +21,17 @@
 <div class="pagination_container">
    <button class="prev_btn" (click)="pagination('prev')">
 
-    <img src="../../../assets/images/pagination_active.svg" alt="prev button">
+    <img 
+    [src]="currentPage>=1?' ../../../assets/images/pagination_active.svg':'../../../assets/images/pgination_disabled.svg'"
+    src="../../../assets/images/pagination_active.svg" alt="prev button">
    </button>
    <div class="pages">
 
        <p class="total_pages">{{totalPages}}</p>
-       <p class="page_number">/</p>
-       <p class="page_number">1</p>
+       <p class="sign">/</p>
+       <p class="page_number">{{currentPage}}</p>
     </div>
-   <button class="next_btn" (click)="pagination('next')">
-    <img src="../../../assets/images/pagination_active.svg" alt="next button">
+   <button class="next_btn" [ngClass]="currentPage!=totalPages?'':'rotate_btn'" (click)="pagination('next')">
+    <img [src]="currentPage!=totalPages?' ../../../assets/images/pagination_active.svg':'../../../assets/images/pgination_disabled.svg'" alt="next button">
    </button>
 </div>

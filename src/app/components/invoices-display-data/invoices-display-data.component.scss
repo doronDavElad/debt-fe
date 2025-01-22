@@ -44,12 +44,22 @@
     .pages{
         .page_number{
             display: inline-block;
+            margin-inline-end: 8px;
             
         }
         .total_pages{
+            display: inline-block;
+            margin-inline-start: 8px;
+
+        }
+        .sign{
             display: inline-block;
 
         }
     }
 
+}
+
+.rotate_btn{
+    transform: rotate(180deg);
 }
