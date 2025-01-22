@@ -16,5 +16,10 @@ import('./pages/invoices/invoices.component').then((m=>m.InvoicesComponent))
 loadComponent:()=>
 import('./pages/customers/customers.component').then((m=>m.CustomersComponent))
 },
+    {
+        path:'customer',
+loadComponent:()=>
+import('./pages/customers/customers.component').then((m=>m.CustomersComponent))
+},
 
 ];

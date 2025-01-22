@@ -7,7 +7,7 @@
                 {{item.name}}
             </td>
             <td class="price" *ngSwitchCase="'price'">
-                &#8362;    {{item.totalAmount}}
+                &#8362;{{item.totalAmount}}
             </td>
             <td class="graph_container" *ngSwitchCase="'graph'">
                 <div class="graph" [style.width]="getGraphWidth(item.totalAmount)">
@@ -16,11 +16,15 @@
             <td class="img" *ngSwitchCase="'indicator'">
                 <img *ngIf="item.flag" src="../../../assets/images/yellow_mark.svg" alt="">
             </td>
-            <td class="img" *ngSwitchCase="'date'">
-               {{item.date}}
+            <td class="date" *ngSwitchCase="'date'">
+               {{formatDateForTemplate(item.date ? +item.date : 0)}}
             </td>
-            <td class="img" *ngSwitchCase="'status'">
-               {{item.status}}
+            <td class="status" *ngSwitchCase="'status'">
+               <div class="status_item" [ngClass]="item.status==='התקבל פירוט'?'greenContainer':'yellowContainer'">
+                <p>    
+                    {{item.status}}
+                </p>
+               </div>
             </td>
         </ng-container>
         </ng-container>

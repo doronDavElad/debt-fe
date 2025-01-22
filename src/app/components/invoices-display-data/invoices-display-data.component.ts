@@ -2,6 +2,7 @@ import { Component, Input, input } from '@angular/core';
 import { IpaidInvoices } from '../incoives-summary/invoices-summary.interface';
 import { CommonModule } from '@angular/common';
 import { IInvoicesTable } from './invoices-display-data.interface';
+import { formatDate } from '../../helpers/tableHelpers';
 
 @Component({
   selector: 'app-invoices-display-data',
@@ -9,6 +10,7 @@ import { IInvoicesTable } from './invoices-display-data.interface';
   imports: [CommonModule],
   templateUrl: './invoices-display-data.component.html',
   styleUrl: './invoices-display-data.component.scss'
+
 })
 export class InvoicesDisplayDataComponent {
   @Input() invoicesData: IpaidInvoices[] = [];
@@ -61,5 +63,9 @@ export class InvoicesDisplayDataComponent {
   const percentage = (amount / this.highestPrice) * 100;
     return percentage + '%';
  }
+
+ formatDateForTemplate(date: number) {
+  return formatDate(date);
+}
 
 }

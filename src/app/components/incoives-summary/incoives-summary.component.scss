@@ -2,12 +2,16 @@
 
 .container{
     width: 652px;
-    border: 1px solid red;
+    height: 704px;
     background-color:  $background-white;
     border-radius: 8px;
     padding:16px ;
 
-   
+   .title{
+    height: 36px;
+    font-size: 22px;
+    font-weight: 500;
+}
 
       
 }
