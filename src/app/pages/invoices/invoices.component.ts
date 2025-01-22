@@ -125,17 +125,17 @@ export class InvoicesComponent {
 
   tableInvoiceMockData:ItableValues[]=[
     {
-      controlName: 'customerId',
-      type: 'text',
-      title: 'קוד לקוח',
-      sort:true
-      
-    },
-    {
       controlName: 'flag',
       type: 'flag',
       title: '',
       sort:false
+      
+    },
+    {
+      controlName: 'customerId',
+      type: 'text',
+      title: 'קוד לקוח',
+      sort:true
       
     },
     {

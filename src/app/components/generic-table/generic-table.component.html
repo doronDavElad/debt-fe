@@ -34,6 +34,9 @@
                     >
                     <div class="switch_container" [ngSwitch]="column.type">
 
+                        <div class="text"  *ngSwitchCase="'flag'">
+                            <img *ngIf="rowData.isMarked" src="../../../assets/images/flag_sign.svg" alt="sign flag">
+                        </div>
                         <div class="text"  *ngSwitchCase="'text'">{{rowData[column.controlName]}}</div>
                         <div class="text"  *ngSwitchCase="'date'">{{formatDate(rowData[column.controlName])}}</div>
                     

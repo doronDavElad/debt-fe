@@ -77,6 +77,11 @@
                 // border-bottom: 1px solid black;
                 // border-top: 1px solid black;
                 padding: 0;
+                padding-inline-end: 16px;
+
+                &:first-child{
+                    width: 25px;
+                }
                 .switch_container{
                     // display: flex;
                     .text{

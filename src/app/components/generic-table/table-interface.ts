@@ -1,6 +1,7 @@
 // export interface ITableHeader {
 export interface ITableRowData {
   [key: string]: any;
+  isMarked:boolean
     customerId?:number,
     companyName?:string,
     projectName?:string,
