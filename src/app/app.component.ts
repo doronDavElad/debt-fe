@@ -7,10 +7,19 @@ import { BrowserModule } from '@angular/platform-browser';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,HeaderComponent,SubHeaderComponent,RouterModule],
+  imports: [RouterOutlet,HeaderComponent,RouterModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'debt_fe';
+  searchData: string = '';
+
+
+  updateSearchData(newData: string): void {
+    console.log(newData);
+    
+    this.searchData = newData;
+    
+  }
 }

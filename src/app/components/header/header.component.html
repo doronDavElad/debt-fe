@@ -14,7 +14,10 @@
         <app-search-input 
             [name]="name" 
             [id]="id" 
-            [placeholder]="placeholder">
+            [placeholder]="placeholder"
+            [searchData]="searchData" 
+            (searchDataChange)="searchDataChange.emit($event)"
+            >
         </app-search-input>
 
         <div class="user_contianer">

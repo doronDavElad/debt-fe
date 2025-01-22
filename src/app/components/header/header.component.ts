@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { HeaderLinksInterface } from './header-interface.interface';
 import { CommonModule } from '@angular/common';
 import { SearchInputComponent } from "../search-input/search-input.component"; 
@@ -16,7 +16,8 @@ export class HeaderComponent {
   @Input() name: string = 'headerSearch'; 
   @Input() id: string = 'headerSearch';   
   @Input() placeholder: string = 'חיפוש לקוח לפי שם או ע.מ';  
-
+  @Input() searchData!: string;
+  @Output() searchDataChange = new EventEmitter<string>();
 
   toggleChevronClass(){
     if(this.imageClass==='chevron_down'){

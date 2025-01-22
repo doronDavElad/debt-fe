@@ -1,5 +1,7 @@
 <main class="main">
-<app-header></app-header>
+<app-header
+[searchData]="searchData" (searchDataChange)="updateSearchData($event)"
+></app-header>
 <router-outlet></router-outlet>
 <!-- <div class="site_content_container">
     <app-sub-header></app-sub-header>
