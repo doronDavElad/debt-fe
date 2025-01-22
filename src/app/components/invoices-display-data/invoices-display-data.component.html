@@ -1,0 +1,35 @@
+<table class="table">
+    <tbody class="table_body">
+        <tr class="row" *ngFor="let item of dataToDisplay">
+            <td class="name">
+                {{item.name}}
+            </td>
+            <td class="price">
+                &#8362;    {{item.totalAmount}}
+            </td>
+            <td class="graph_container">
+                <div class="graph" [style.width]="getGraphWidth(item.totalAmount)">
+                </div>
+            </td>
+            <td class="img">
+                <img *ngIf="item.flag" src="../../../assets/images/yellow_mark.svg" alt="">
+            </td>
+        </tr>
+
+    </tbody>
+</table>
+<div class="pagination_container">
+   <button class="prev_btn" (click)="pagination('prev')">
+
+    <img src="../../../assets/images/pagination_active.svg" alt="prev button">
+   </button>
+   <div class="pages">
+
+       <p class="total_pages">{{totalPages}}</p>
+       <p class="page_number">/</p>
+       <p class="page_number">1</p>
+    </div>
+   <button class="next_btn" (click)="pagination('next')">
+    <img src="../../../assets/images/pagination_active.svg" alt="next button">
+   </button>
+</div>

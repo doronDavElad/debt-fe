@@ -1,0 +1,55 @@
+@import '../../style/main.scss';
+.table{
+    width: 100%;
+    .table_body{
+        .row{
+            font-size: 16px;
+            border-bottom:1px solid $costomers-table-border ;
+            height: 52px;
+            .name{}
+            .price{}
+            .graph_container{
+                width: 213px;
+                border-right: 1px solid $costomers-table-border;
+                padding: 0;
+                
+                .graph{
+                    height: 10px;
+                    background-color: blue;
+                    border-top-left-radius: 16px;
+                    border-bottom-left-radius: 16px;
+
+                }
+            }
+
+        }
+    }
+
+}
+.pagination_container{
+    display: flex;
+    width: 100%;
+    .prev_btn{
+    img{
+        
+    }
+    }
+    .next_btn{
+    img{
+        transform: rotate(180deg);
+
+    }
+    }
+
+    .pages{
+        .page_number{
+            display: inline-block;
+            
+        }
+        .total_pages{
+            display: inline-block;
+
+        }
+    }
+
+}

@@ -1,0 +1,33 @@
+
+<div class="container">
+    <h2 class="title">keuju,</h2>
+    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+        <mat-tab label="נדחו">
+            <app-invoices-display-data
+            [invoicesData]="invoicesData"
+            [highestPrice]="highestPrice">
+            
+
+            </app-invoices-display-data>
+
+
+
+        </mat-tab>
+        <mat-tab label="ללא תגובה">
+            <app-invoices-display-data
+            [invoicesData]="invoicesData"
+            [highestPrice]="highestPrice">
+            
+
+            </app-invoices-display-data>    
+        </mat-tab>
+        <mat-tab label="בחוב">
+            <app-invoices-display-data
+            [invoicesData]="invoicesData"
+            [highestPrice]="highestPrice">
+            
+
+            </app-invoices-display-data>
+        </mat-tab>
+    </mat-tab-group>
+</div>
