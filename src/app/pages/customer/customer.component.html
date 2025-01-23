@@ -1,1 +1,56 @@
-<p>customer works!</p>
+<div class="page_layout flex_container">
+    <div class="cardsData">
+
+        <app-customer-info-card class="space_containers"
+        [customerData]="customerData">
+    </app-customer-info-card>
+    
+    <app-contact-card 
+    [customerData]="customerData"
+    >
+    
+</app-contact-card>
+</div>
+<div class="tableData">
+ <div class="cards" >
+
+        <div class="card" *ngFor="let text of customerTableCards">
+            <h4>cshevvvv</h4>
+            <p>{{text.text}}<span>בידקההההה</span></p>
+        </div>
+        
+  
+ </div>
+ <div class="table_contaier">
+    <div class="marked_invoices">
+
+    </div>
+    <div class="table">
+        <app-generic-input
+        class="inputs"
+        [taskeInputs]="taskeInputs"
+        (InputValue)="handleInputOutput($event)"
+        (optionSelected)="handleOptionSelected($event)"
+        ></app-generic-input>
+
+        <!-- <app-generic-table 
+        [allData]="tableInvoiceMockData"
+        [tableData]="sortedData()"
+        [tabsDataToTable]="dataToTable"
+        [taskeInputs]="taskeInputs"
+        [sortData]="sortData.bind(this)"
+        [currentSortColumn]="currentSortColumn()"
+        (toggleDrawer)="toggleDrawer()"
+        
+        
+        
+        
+        ></app-generic-table> -->
+
+    </div>
+
+ </div>
+</div>
+
+
+</div>

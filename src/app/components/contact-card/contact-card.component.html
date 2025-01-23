@@ -1,0 +1,13 @@
+<ul class="contact_container">
+    <li class="contact_item" *ngFor="let contact of customerData.contacts">
+        <div class="img_container">
+            <img src="../../../assets/images/user_sign.svg" alt="">
+        </div>
+        <div class="contact_data">
+            <h5 class="title">{{contact.client_name}}</h5>
+            <p class="phone_num">{{contact.client_number}}</p>
+            <p class="email">{{contact.client_email}}</p>
+        </div>
+    </li>
+
+</ul>

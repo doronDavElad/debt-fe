@@ -1,0 +1,36 @@
+@import '../../style/main.scss';
+
+.contact_container{
+    border: 1px solid red;
+    width: 310px;
+    padding: 16px;
+    border-radius: 8px;
+    background-color:  $background-white;
+    .contact_item{
+        border-bottom:$border_grey;
+        padding-bottom: 16px;
+        padding-top: 8px;
+
+        &:last-child{
+            border: none;
+        }
+        // border: 1px solid blue;
+        display: flex;
+        .contact_data{
+            padding-inline-start: 8px;
+        .title{
+            font-size: 18px;
+            font-weight: 700;
+            
+        }
+        .phone_num, .email{
+            font-size: 18px;
+            font-weight: 400;
+
+
+        }
+
+        }
+
+}
+}

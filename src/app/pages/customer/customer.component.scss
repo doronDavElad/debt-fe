@@ -1,0 +1,49 @@
+.flex_container{
+    display: flex;
+}
+
+.cardsData {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.tableData{
+    // width: 100px;
+    // height: 100px;
+    // border: 2px solid green;
+
+    .cards{
+        height: 96px;
+        // border: 1px solid red;
+        display: flex;
+        gap: 16px;
+        margin-bottom: 48px;
+        .card{
+            border: 1px solid blue;
+
+        }
+    }
+
+    .table_contaier{
+        border: 1px solid yellow;
+        display: flex;
+        
+
+        .marked_invoices{
+            width: 142px;
+            height: 254px;
+            border: 1px solid blue;
+
+        }
+        .table{
+            .inputs{
+                display: flex;
+            }
+
+        }
+
+    }
+    
+
+}

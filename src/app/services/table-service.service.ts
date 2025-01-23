@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { TableData } from '../../components/generic-table/table-interface';
-import { invoicesTable } from '../../mockData/bills';
+import { TableData } from '../components/generic-table/table-interface';
+import { invoicesTable } from '../mockData/bills';
 
 @Injectable({
   providedIn: 'root',

@@ -1,0 +1,16 @@
+<div class="main_contianer">
+    <div class="task_btn_container">
+        <img class="img" src="../../../assets/images/exit.svg" alt="חזרה לעמוד הקודם">
+        <img class="img" src="../../../assets/images/settings.svg" alt="כניסה להגדרות">
+    </div>
+    <div class="customer_info_container">
+        <div class="customer_main_info_container">
+            <h2 class="title">{{customerData.name}}</h2>
+            <p class="key">ע"מ<span class="value">{{customerData.customer_id}}</span></p>
+        </div>
+        <div class="customer_sub_info_container">
+           <p class="key">קוד לקוח <span class="value">{{customerData.customer_code}}</span></p>
+           <p class="key">תנאי תשלום <span class="value">{{customerData.customer_payment_terms}}</span></p>
+        </div>
+    </div>
+</div>

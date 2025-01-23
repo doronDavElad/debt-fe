@@ -1,0 +1,61 @@
+@import '../../style/main.scss';
+.main_contianer{
+    border: 1px solid red;
+    width: 310px;
+    padding: 16px;
+    background-color:  $background-white;
+    border-radius: 8px;
+
+    .task_btn_container{
+        display: flex;
+        justify-content: space-between;
+        border: 1px solid blue;
+        margin-bottom: 32px;
+        .img{
+            
+        }
+        
+    }
+    .customer_info_container{
+        border: 1px solid green;
+        .customer_main_info_container{
+            margin-bottom: 16px;
+            .title{
+                font-size: 32px;
+                font-weight: 500px;
+                margin-bottom: 8px;
+
+
+            }
+            .key{
+                margin-inline-end: 8px;
+
+            }
+            .value{
+                margin-inline-start: 8px;
+
+            }
+
+
+        }
+    }
+
+    .customer_sub_info_container{
+        .key{
+            color: $grey_key_text;
+            .value{
+                color: black;
+
+            }
+
+        }
+    
+    }
+}
+.key{
+    margin-inline-end: 8px;
+}
+.key , .value{
+    font-size: 18px;
+    height: 30px;
+}

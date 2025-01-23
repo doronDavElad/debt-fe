@@ -11,7 +11,8 @@ export interface ITableRowData {
     payAmount?:string,
     eladEmployee?: string,
     status?:string 
-    customerName?:string 
+    customerName?:string,
+    group?:string,
 }
 export interface TableData {
     tableValues?: ItableValues[];
