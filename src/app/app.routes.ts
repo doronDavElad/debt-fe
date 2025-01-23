@@ -19,7 +19,7 @@ import('./pages/customers/customers.component').then((m=>m.CustomersComponent))
     {
         path:'customer',
 loadComponent:()=>
-import('./pages/customers/customers.component').then((m=>m.CustomersComponent))
+import('./pages/customer/customer.component').then((m=>m.CustomerComponent))
 },
 
 ];
