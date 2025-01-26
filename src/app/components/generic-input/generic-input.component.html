@@ -7,17 +7,21 @@
         </button>
       </div>
 
-
-        <div *ngSwitchCase="'text'" class="text_input_container">
-           <label *ngIf="input.label">{{ input.label }}</label>
-           <img class="search_img" [src]="input.icon" alt="">
-            <input
-            class="text_input"
-              [placeholder]="input.placeHolder"
-              [(ngModel)]="input.value"
-              (input)="onChnageValue($event,i)"
-            /> 
-          </div> 
+      <div *ngSwitchCase="'date'" class="date_input_container">
+        <div class="card flex justify-center">
+          <!-- <p-datepicker [(ngModel)]="date" view="month" dateFormat="mm/yy" /> -->
+          <p-calendar 
+          [(ngModel)]="date" 
+          view="month" 
+          dateFormat="mm/yy"
+          icon="custom_icon"
+          styleClass="custom_calendar"
+          [maxDate]="minDate"
+          (ngModelChange)="onDateChange($event)"
+        />      </div>
+        </div> 
+     
+       
 <div class="selectContainer"  *ngSwitchCase="'select'">
   <button class="select_input_container"  (click)="toggleDropdown()">
     <!-- <p *ngIf="input.placeHolder">{{ input.placeHolder+ ' ' +input.value}} </p> -->
@@ -44,7 +48,16 @@
   
 </div>
 </div>
-
+<div *ngSwitchCase="'text'" class="text_input_container">
+  <label *ngIf="input.label">{{ input.label }}</label>
+  <img class="search_img" [src]="input.icon" alt="">
+   <input
+   class="text_input"
+     [placeholder]="input.placeHolder"
+     [(ngModel)]="input.value"
+     (input)="onChnageValue($event,i)"
+   /> 
+ </div> 
 
 </div>
 </div>

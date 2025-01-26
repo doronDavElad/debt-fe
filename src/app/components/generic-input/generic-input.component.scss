@@ -109,5 +109,70 @@
 
         }
             //another input type here
+
+            .date_input_container {
+                width: 263px; 
+                border:$border_grey; 
+                border-radius: 8px; 
+                display: flex; 
+                align-items: center;
+                justify-content: space-between;
+                height: 40px;
+                position: relative;
+              
+                ::ng-deep .custom_calendar .p-inputtext {
+                  border: none; 
+                  box-shadow: none;
+                  height: 38px;
+
+                }
+                
+                ::ng-deep .custom_calendar {
+                  width: 100%; 
+                }
+                
+               
+                ::ng-deep .p-datepicker .p-monthpicker .p-monthpicker-month {
+                    margin: 8px;
+                }
+                ::ng-deep .p-datepicker .p-datepicker-header {
+                  background-color: inherit;
+                }
+                ::ng-deep .p-icon-wrapper {
+transform: rotate(180deg);                }
+                ::ng-deep .p-monthpicker-month {
+                  background-color: inherit;
+                }
+                ::ng-deep .p-monthpicker-month {
+                    border: $border_grey;
+                    width: 27.3%;
+                             }
+                 ::ng-deep .p-datepicker {
+                    width: 315px;
+                    border:  $border_grey; 
+                    border-radius: 8px; 
+                    position: absolute;
+                    right: 0;
+  }
+              
+                &::after {
+                  content: url('../../../assets/images/arrow_down.svg');
+                  margin-left: 8px; 
+                  display: inline-block;
+                }
+              }
+              
+              
         }
     }
+
+
+
+    :host ::ng-deep .p-datepicker {
+        // Add your custom styles here
+        min-width: 200px;
+        // Example styling
+        .p-datepicker-header {
+          background-color: #f0f0f0;
+        }
+      }

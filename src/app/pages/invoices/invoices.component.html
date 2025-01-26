@@ -14,7 +14,8 @@
             (optionSelected)="handleOptionSelected($event)"
             [exportToExcel]="exportToExcel"
             (toggleDrawer)="toggleDrawer()"
-
+            [date]="date"
+            (dateChange)="onDateChange($event)"
             
          
             ></app-generic-input>

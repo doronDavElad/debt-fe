@@ -29,9 +29,11 @@ export class InvoicesComponent {
   isOpenDrawer:boolean = false;
   currentSortColumn = signal<string | null>(null);
   drawerdata:IDrawerOrders={} as IDrawerOrders
-
+  date: number | undefined; 
   constructor(private invoiceService: InvoiceService) {
     this.exportToExcel = this.exportToExcel.bind(this);
+    this.date = Date.now(); 
+
 
   }
 
@@ -63,6 +65,10 @@ export class InvoicesComponent {
   
   
 
+  
+ onDateChange(selectedDate: number): void {
+    console.log('Selected Date in Parent:', selectedDate);
+  }
 
   sortData = (colData: ItableValues): void => {
     try {
@@ -189,7 +195,7 @@ export class InvoicesComponent {
   ]
 
   handleInputOutput(emittedData: { value: string, index: number }): void {
-    console.log(emittedData);
+    console.log(11,emittedData);
   
     const searchValue = emittedData.value.toLowerCase();
   
@@ -209,6 +215,7 @@ export class InvoicesComponent {
       this.sortedData.set(filteredData);
     }
   }
+  
   
 
   taskeInputs:IgenericInput[]=[
@@ -238,7 +245,8 @@ export class InvoicesComponent {
       options:["הכל","לא נשלחה","נשלחה","נדחתה","אושר לתשלום",'ללא תגובה','אושרה' ,'לתשלום'],
       icon:'../../../assets/images/chevron_down.svg',
       value:''
-    }
+    },
+   
   ]
   dataToTable: Itabs_sub_header = {
     value: '',
