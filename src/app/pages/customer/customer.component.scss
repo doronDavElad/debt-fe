@@ -25,9 +25,19 @@
         .card{
             flex: 1;
             border-radius: 8px;
-          
             border: 1px solid blue;
+            padding: 16px 32px 16px;
+            background-color: rgba(239, 230, 253, 0.4);
+            ;
 
+            h4{
+             font-size: 40px;   
+             margin-bottom: 16px;
+            }
+            .text{
+                font-size: 18px;
+                color: $subHeader_title;
+            }
 
         }
     }
@@ -43,11 +53,19 @@
 
         }
         .table{
-            width: 798px;
-            .inputs{
+            .title_and_inputs{
                 display: flex;
-                gap: 16px;
+                justify-content: space-around;
 
+                width: 798px;
+                .inputs{
+                    display: flex;
+                    gap: 16px;
+                }
+
+            }
+            .table_and_tabs{
+                display: flex;
             }
 
         }
