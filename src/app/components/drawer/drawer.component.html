@@ -18,11 +18,29 @@
         </div>
         <div class="options">
             <button>
-                <img src="../../../assets/images/flag.svg" alt="mark with flag">
+                <img  src="../../../assets/images/flag.svg" alt="mark with flag">
             </button>
-            <button>
+            <button (click)="openPopup()">
                 <img src="../../../assets/images/option_sign.svg" alt="mark with flag">
             </button>
+            <div *ngIf="isOptionsOpen" class="options_container">
+               
+                 <button>
+                    <img src="../../../assets/images/download.svg" alt="download">
+                    הורדה
+                 </button>
+                 <button>
+                    <img src="../../../assets/images/mail.svg" alt="send mail">
+                    שליחה במייל
+                 </button>
+                 <button>
+                    <img src="../../../assets/images/agreed.svg" alt="agreed">
+                    אושרה לתשלום
+                 </button>
+               
+                
+               
+              </div>
         </div>
     </div>
     </div>
@@ -40,13 +58,34 @@
             <p class="key">חטיבה<span class="value">{{drawerdata.elad_unit}}</span></p>
             <div class="user">
                 <div class="name_and_img">
-
                     <img class="user_img" src="../../../assets/images/user_sign.svg" alt="">
                     <p class="value">{{drawerdata.elad_contact.name}}</p>
                 </div>
-                <img class="chevron_img" src="../../../assets/images/chevron_down.svg" alt="">
+                <button (click)="openEladContact()">
+                    <img class="chevron_img" src="../../../assets/images/chevron_down.svg"
+                    [ngClass]="{'rotate_chevron': isOpenEladContact}" 
+                    alt=""
+                     >
+                </button>
                 
-            </div>        </div>
+                <div *ngIf="isOpenEladContact" class="contact_data">
+                    <div>
+                        <img class="user_img" src="../../../assets/images/user_sign.svg" alt="">
+                        <h4 class="name">{{drawerdata.elad_contact.name}}</h4>
+                    </div>
+                    <p class="phone">{{drawerdata.elad_contact.phone}}</p>
+                    <div>
+                        <div class="mail_btn">
+                            <p class="mail">
+                                {{drawerdata.elad_contact.email}}
+                            </p>
+                            <button   (click)="copyToClipboard(drawerdata.elad_contact.email)" class="btn">העתק</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>        
+        </div>
     </div>
 
 
@@ -62,15 +101,37 @@
             <p class="key">הזמנה<span class="value">{{drawerdata.order_id}}</span></p>
         </div>
         <div class="end_container">
-            <div *ngFor="let contact of drawerdata.contact_data" class="user">
+            <div *ngFor="let contact of drawerdata.contact_data; let i = index" class="user">
                 <div class="name_and_img">
                     <img class="user_img" src="../../../assets/images/user_sign.svg" alt="">
                     <p class="value">{{contact.name}} </p>
                 </div>
-                <img class="chevron_img" src="../../../assets/images/chevron_down.svg" alt="">
+                <button (click)="openContactBox(i)">
+                    <img class="chevron_img"   
+                    [ngClass]="{'rotate_chevron': isContactBoxOpen === i}"                     src="../../../assets/images/chevron_down.svg" alt="">
+                </button>
+
                 
+                <!-- //addd -->
+                <div *ngIf="isContactBoxOpen === i" class="contact_data">
+                    <div class="contact_container">
+                        <img class="user_img" src="../../../assets/images/user_sign.svg" alt="">
+                        <h4 class="name">{{contact.name}}</h4>
+                    </div>
+                    <p class="phone">{{contact.phone}}</p>
+                    <div>
+                        <div class="mail_btn">
+                            <p class="mail">
+                                {{contact.email}}
+                            </p>
+                            <button (click)="copyToClipboard(contact.email)" class="btn">העתק</button>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
+        
     </div>
 
 

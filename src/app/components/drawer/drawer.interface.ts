@@ -10,6 +10,8 @@ export interface IDrawerOrders{
     elad_unit:string
     elad_contact:{
         name:string
+        phone:string
+        email:string
     }
 
     customer_number:string

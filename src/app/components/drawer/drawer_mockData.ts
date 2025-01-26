@@ -12,8 +12,9 @@ export const drower_data: IDrawerOrders={
     elad_unit:"Digital",
 
     elad_contact:{
-        name:"סיוון זמיר"
-
+        name: "סיוון זמיר",
+            phone: "0547596701",
+            email: "testMail@gmail.com",
     },
 
     customer_number:"123456",

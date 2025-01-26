@@ -98,6 +98,7 @@ position: absolute
 
     }
     .options{
+        position: relative;
 
     }
 } }
@@ -121,7 +122,9 @@ position: absolute
         .user{
             display: flex;
             justify-content: space-between;
+            position: relative;
             .name_and_img{
+                position: relative;
 
                 
                 .value{
@@ -165,11 +168,78 @@ position: absolute
             color:$blueText ;
         }
     }
-    // .end_container{
+    .end_container{
+        position: relative;
 
       
 
-    // }
+    }
 
 }
+}
+
+.options_container{
+    // border: 1px solid red;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    background-color:  $background-white;
+    width: 178px;
+    border: $border_grey;
+    box-shadow: $drawer-shadow;
+    border-radius: 8px;
+    z-index: 10;
+    button{
+        padding: 8px;
+    }
+    
+}
+
+.contact_data{
+    border: 1px solid black;
+    position: absolute;
+    width: 249px;
+    background-color:  $background-white;
+    border: $border_grey;
+    box-shadow: $drawer-shadow;
+    position: absolute;
+top: 25px;
+    left: 74px;
+    border-radius: 8px;
+    padding: 8px;
+    z-index: 10;
+    
+    .contact_container{
+        display: flex;
+        gap: 8px;
+
+    
+    .name{
+        font-size: 18px;
+        font-weight: 500;
+    }
+    }
+    .phone{
+        font-size: 18px;
+        font-weight: 400;
+
+    }
+    .mail_btn{
+        .mail{
+            background-color: rgb(224, 219, 219);
+            display: inline;
+            padding: 6px 6px 6px 0;
+            border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+        }
+        .btn{
+            background-color: rgba(206, 176, 250, 0.25);
+            padding: 6px 0 6px 6px;
+            border-radius: 4px;
+        }
+    }
+
+}
+.rotate_chevron{
+    transform: rotate(180deg);
 }

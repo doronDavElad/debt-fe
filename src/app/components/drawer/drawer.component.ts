@@ -15,6 +15,21 @@ export class DrawerComponent {
   @Input() isOpen: boolean = false;
   @Output() toggleDrawer = new EventEmitter<void>();
   @Input() drawerdata: IDrawerOrders={} as IDrawerOrders;
+  isOptionsOpen: boolean = false;
+  isOpenEladContact: boolean = false;
+  isContactBoxOpen: number | null = null; 
+  openContactBox(index: number): void {
+    // If the same contact is clicked, close it; otherwise, open it
+    this.isContactBoxOpen = this.isContactBoxOpen === index ? null : index;
+  }
+  openEladContact(): void {
+    console.log(111);
+    
+    this.isOpenEladContact = !this.isOpenEladContact;
+  }
+  openPopup(): void {
+    this.isOptionsOpen = !this.isOptionsOpen;
+  }
 
   formatDate(date: number) {
     return formatDate(+date);
@@ -26,5 +41,12 @@ export class DrawerComponent {
   }
   close() {    
     this.toggleDrawer.emit();
+  }
+
+  copyToClipboard(text: string): void {
+    navigator.clipboard.writeText(text).then(() => {
+    }).catch((err) => {
+      console.error('Failed to copy text: ', err);
+    });
   }
 }
