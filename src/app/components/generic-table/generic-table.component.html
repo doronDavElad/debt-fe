@@ -1,12 +1,4 @@
 <div class="container">
-    <!-- <div class="table_filters">
-        <h2>{{tabsDataToTable.title}}</h2>
-        <div>
-            <app-generic-input
-            [taskeInputs]="taskeInputs"
-            ></app-generic-input>
-        </div>
-    </div> -->
     <table class="table">
         <thead class="table_head">
             <tr class="title_row">
@@ -65,7 +57,7 @@
                  
                     >
                         <p>
-                            {{ rowData[column.controlName] }}
+                            {{ rowData[column.controlName]|json }}
                         </p>
                       
                     </div>

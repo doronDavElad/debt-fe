@@ -20,6 +20,7 @@ export class CustomerComponent implements OnInit {
   customerData: ICustomerPageDataInterface = {} as ICustomerPageDataInterface;
   tableData = signal<ITableRowData[]>([]);
   sortedData = signal<ITableRowData[]>([]);
+  currentSortColumn = signal<string | null>(null);
 
   customerTableCards:customerCardsText[]=[
    {text: "חשבוניות לא מאושרות" },
@@ -30,10 +31,16 @@ export class CustomerComponent implements OnInit {
   constructor(private customerPageService: CustomerPageServiceService) {}
 
   ngOnInit(): void {
-    const data = this.customerPageService.customerdata();
+    
+    const data = this.customerPageService.customerdata()?.all_invoices;
+  
+    
     if (data) {
-      this.customerData = data;
-    } else {
+      this.sortedData.set(data); 
+      this.tableData.set(data)
+      console.log(11,this.customerData);
+    }
+     else {
     }
   }
 
@@ -75,13 +82,51 @@ export class CustomerComponent implements OnInit {
     this.sortedData.set(filteredData)
   }
   
+  sortData = (colData: ItableValues): void => {
+    console.log(this.tableData());
+    
+  try {
+    const key = colData.controlName;
+
+    if (this.currentSortColumn() === key) {
+      
+      this.sortedData.set(this.tableData());
+      this.currentSortColumn.set(null);
+      return;
+    }
+
+    // Sort the data
+    console.log(1,this.tableData());
+    
+    const dataToSort = [...this.tableData()];
+    const newSortedData = dataToSort.sort((a, b) => {
+      
+      const valueA = a[key];
+      const valueB = b[key];
+
+      if (typeof valueA === 'string' && typeof valueB === 'string') {
+        return valueA.localeCompare(valueB);
+      } else if (typeof valueA === 'number' && typeof valueB === 'number') {
+        return valueA - valueB;
+      }
+      return 0;
+    });
+
+    this.sortedData.set(newSortedData);
+    this.tableData.set(newSortedData);
+    this.currentSortColumn.set(key);
+  } catch (error) {
+    console.error('Error during sorting:', error);
+  }
+};
+
 
   taskeInputs:IgenericInput[]=[
     
     {
       type:'select',
       placeHolder:'סינון:',
-      options:["הכל","לא נשלחה","נשלחה","נדחתה","אושרה לתשלום",'ללא תגובה','אושרה' ,'לתשלום'],
+      options:["הכל","לא נשלחה","נשלחה","נדחתה","אושר לתשלום",'ללא תגובה','אושרה' ,'לתשלום'],
       icon:'../../../assets/images/chevron_down.svg',
       value:''
     },
@@ -104,32 +149,32 @@ export class CustomerComponent implements OnInit {
       
     },
     {
-      controlName: 'customerId',
+      controlName: 'date',
       type: 'date',
       title: 'תאריך חשבונית',
       sort:true
       
     },
     {
-      controlName: 'customerName',
+      controlName: 'billNumber',
       type: 'text',
       title: 'מספר חשבונית',
       sort:true
     },
     {
-      controlName: 'projectName',
+      controlName: 'secondDate',
       type: 'date',
       title: 'תאריך ערך',
       sort:true
     },
     {
-      controlName: 'date',
+      controlName: 'group',
       type: 'text',
       title: 'חטיבה',
       sort:true
     },
     {
-      controlName: 'billNumber',
+      controlName: 'payAmount',
       type: 'text',
       title: 'סכום',
       sort:true

@@ -235,7 +235,7 @@ export class InvoicesComponent {
     {
       type:'select',
       placeHolder:'סינון:',
-      options:["הכל","לא נשלחה","נשלחה","נדחתה","אושרה לתשלום",'ללא תגובה','אושרה' ,'לתשלום'],
+      options:["הכל","לא נשלחה","נשלחה","נדחתה","אושר לתשלום",'ללא תגובה','אושרה' ,'לתשלום'],
       icon:'../../../assets/images/chevron_down.svg',
       value:''
     }

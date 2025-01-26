@@ -1,6 +1,5 @@
 @import '../../style/main.scss';
 .main_contianer{
-    border: 1px solid red;
     width: 310px;
     padding: 16px;
     background-color:  $background-white;
@@ -9,7 +8,6 @@
     .task_btn_container{
         display: flex;
         justify-content: space-between;
-        border: 1px solid blue;
         margin-bottom: 32px;
         .img{
             
@@ -17,7 +15,6 @@
         
     }
     .customer_info_container{
-        border: 1px solid green;
         .customer_main_info_container{
             margin-bottom: 16px;
             .title{

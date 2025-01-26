@@ -15,7 +15,7 @@
  <div class="cards" >
 
         <div class="card" *ngFor="let text of customerTableCards">
-            <h4>cshevvvv</h4>
+            <h4>{{customerData.total_payment_amount|json}}</h4>
             <p>{{text.text}}<span>בידקההההה</span></p>
         </div>
         
@@ -33,19 +33,14 @@
         (optionSelected)="handleOptionSelected($event)"
         ></app-generic-input>
 
-        <!-- <app-generic-table 
+        <app-generic-table 
         [allData]="tableInvoiceMockData"
         [tableData]="sortedData()"
-        [tabsDataToTable]="dataToTable"
-        [taskeInputs]="taskeInputs"
         [sortData]="sortData.bind(this)"
         [currentSortColumn]="currentSortColumn()"
-        (toggleDrawer)="toggleDrawer()"
         
         
-        
-        
-        ></app-generic-table> -->
+        ></app-generic-table>
 
     </div>
 

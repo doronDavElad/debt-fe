@@ -5,9 +5,9 @@ export interface ITableRowData {
     customerId?:number,
     companyName?:string,
     projectName?:string,
-    date?:string,
+    date?:number,
     billNumber?:string,
-    secondDate?:string,
+    secondDate?:number,
     payAmount?:string,
     eladEmployee?: string,
     status?:string 

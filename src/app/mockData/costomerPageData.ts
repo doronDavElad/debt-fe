@@ -31,36 +31,37 @@ export const customerpageMockData:ICustomerPageDataInterface={
             debt_amount: "0",
         },
     ],
+    total_payment_amount:12449.56,
 
     all_invoices:[
        { 
         isMarked:true,
-        date:"1697856000000",
+        date:1697856000000,
         billNumber:"64641459",
-        secondDate:"1697856000000",
+        secondDate:1697856000000,
         group:"CRM",
         payAmount:"12558",
-        status:"אושרה לתשלום"
+        status:"אושר לתשלום"
 
     },
        { 
         isMarked:false,
-        date:"1697856000000",
+        date:1697856000000,
         billNumber:"98751678",
-        secondDate:"1697856000000",
+        secondDate:1697856000000,
         group:"DIGITAL",
         payAmount:"5974",
-        status:"אושרה לתשלום"
+        status:"אושר לתשלום"
 
     },
        { 
         isMarked:true,
-        date:"1697856000000",
+        date:1697856000000,
         billNumber:"64641459",
-        secondDate:"1697856000000",
+        secondDate:1697856000000,
         group:"CRM",
         payAmount:"23597",
-        status:"אושרה לתשלום"
+        status:"אושר לתשלום"
 
     }
 

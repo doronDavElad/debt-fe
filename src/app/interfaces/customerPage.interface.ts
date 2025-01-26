@@ -31,6 +31,7 @@ export interface ICustomerPageDataInterface{
             debt_amount: string,
         },
     ],
+    total_payment_amount:number,
 
     all_invoices:ITableRowData[]
  
