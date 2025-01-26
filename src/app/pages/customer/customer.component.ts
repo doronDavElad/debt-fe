@@ -33,8 +33,11 @@ export class CustomerComponent implements OnInit {
   ngOnInit(): void {
     
     const data = this.customerPageService.customerdata()?.all_invoices;
+    const pageData = this.customerPageService.customerdata();
   
-    
+    if(pageData){
+      this.customerData=(pageData)
+    }
     if (data) {
       this.sortedData.set(data); 
       this.tableData.set(data)
@@ -49,11 +52,9 @@ export class CustomerComponent implements OnInit {
   
     const searchValue = emittedData.value.toLowerCase();
   
-    // If the search input is empty, reset to original tableData
     if (searchValue === "") {
       this.sortedData.set(this.tableData());
     } else {
-      // Filter the data by customerName and billNumber
       const filteredData = this.tableData().filter((row) => {
         return (
           row.customerName?.toLowerCase().includes(searchValue) ||
@@ -61,7 +62,6 @@ export class CustomerComponent implements OnInit {
         );
       });
   
-      // Update sortedData with filtered data
       this.sortedData.set(filteredData);
     }
   }

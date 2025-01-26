@@ -41,7 +41,7 @@ export const customerpageMockData:ICustomerPageDataInterface={
         secondDate:1697856000000,
         group:"CRM",
         payAmount:"12558",
-        status:"אושר לתשלום"
+        status:"אושרה לתשלום"
 
     },
        { 
@@ -51,7 +51,7 @@ export const customerpageMockData:ICustomerPageDataInterface={
         secondDate:1697856000000,
         group:"DIGITAL",
         payAmount:"5974",
-        status:"אושר לתשלום"
+        status:"אושרה לתשלום"
 
     },
        { 
@@ -61,7 +61,7 @@ export const customerpageMockData:ICustomerPageDataInterface={
         secondDate:1697856000000,
         group:"CRM",
         payAmount:"23597",
-        status:"אושר לתשלום"
+        status:"אושרה לתשלום"
 
     }
 
