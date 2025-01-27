@@ -25,7 +25,7 @@
         .card{
             flex: 1;
             border-radius: 8px;
-            border: 1px solid blue;
+            // border: 1px solid blue;
             padding: 16px 32px 16px;
             background-color: rgba(239, 230, 253, 0.4);
             ;
@@ -39,7 +39,10 @@
                 color: $subHeader_title;
                 white-space: nowrap;
             }
+.currencySign{
+    font-size: 24px;
 
+}
         }
     }
 
@@ -74,9 +77,13 @@
         .table{
             .title_and_inputs{
                 display: flex;
-                justify-content: space-around;
+                justify-content: space-between;
 
                 width: 798px;
+                .title{
+                    font-size: 22px;
+                    font-weight: 700;
+                }
                 .inputs{
                     display: flex;
                     gap: 16px;

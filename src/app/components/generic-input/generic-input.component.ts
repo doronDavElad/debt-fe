@@ -28,9 +28,24 @@ export class GenericInputComponent {
   minDate: Date;
   isDropdownOpen: boolean = false; 
   
-constructor(){
-  this.minDate = new Date();
-}
+  constructor(private primeNGConfig: PrimeNGConfig) {
+    this.minDate = new Date();
+    this.primeNGConfig.setTranslation({
+      monthNames: [
+        "ינואר", "פברואר", "מרץ", "אפריל", 
+        "מאי", "יוני", "יולי", "אוגוסט", 
+        "ספטמבר", "אוקטובר", "נובמבר", "דצמבר"
+      ],
+      monthNamesShort: [
+        "ינואר", "פברואר", "מרץ", "אפריל", 
+        "מאי", "יוני", "יולי", "אוגוסט", 
+        "ספטמבר", "אוקטובר", "נובמבר", "דצמבר"
+      ]
+    });
+  }
+
+
+
   
 
 onDateChange(selectedDate: Date[]): void {

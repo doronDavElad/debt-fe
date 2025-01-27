@@ -15,7 +15,7 @@
  <div class="cards" >
 
         <div class="card" *ngFor="let text of customerTableCards">
-            <h4>{{customerData.total_payment_amount|json}}</h4>
+            <h4><span class="currencySign">₪</span>{{customerData.total_payment_amount|json}}</h4>
             <p class="text">{{text.text}}<span>(1)</span></p>
         </div>
         
@@ -27,7 +27,7 @@
     </div> -->
     <div class="table">
         <div class="title_and_inputs">
-            <p>חשבוניות במעקב</p>
+            <p class="title">חשבוניות במעקב</p>
             <app-generic-input
             class="inputs"
             [taskeInputs]="taskeInputs"
