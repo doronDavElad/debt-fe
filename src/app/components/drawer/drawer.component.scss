@@ -196,7 +196,7 @@ position: absolute
 }
 
 .contact_data{
-    border: 1px solid black;
+    border: 1px solid $border_grey;
     position: absolute;
     width: 249px;
     background-color:  $background-white;
@@ -212,6 +212,7 @@ top: 25px;
     .contact_container{
         display: flex;
         gap: 8px;
+        margin-bottom: 8px;
 
     
     .name{
@@ -222,6 +223,7 @@ top: 25px;
     .phone{
         font-size: 18px;
         font-weight: 400;
+        margin-bottom: 6px;
 
     }
     .mail_btn{
