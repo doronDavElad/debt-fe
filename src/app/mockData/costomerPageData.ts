@@ -32,7 +32,12 @@ export const customerpageMockData:ICustomerPageDataInterface={
         },
     ],
     total_payment_amount:12449.56,
+    // all_projects:[
+    //     {
 
+    //     }
+
+    // ],
     all_invoices:[
        { 
         isMarked:true,
@@ -41,7 +46,8 @@ export const customerpageMockData:ICustomerPageDataInterface={
         secondDate:1697856000000,
         group:"CRM",
         payAmount:"12558",
-        status:"אושרה לתשלום"
+        status:"אושרה לתשלום",
+        project:'P05178'
 
     },
        { 
@@ -51,7 +57,8 @@ export const customerpageMockData:ICustomerPageDataInterface={
         secondDate:1697856000000,
         group:"DIGITAL",
         payAmount:"5974",
-        status:"אושרה לתשלום"
+        status:"אושרה לתשלום",
+        project:'P05178'
 
     },
        { 
@@ -61,7 +68,30 @@ export const customerpageMockData:ICustomerPageDataInterface={
         secondDate:1697856000000,
         group:"CRM",
         payAmount:"23597",
-        status:"אושרה לתשלום"
+        status:"אושרה לתשלום",
+        project:'P05178'
+
+    },
+       { 
+        isMarked:true,
+        date:1697856000000,
+        billNumber:"64641459",
+        secondDate:1697856000000,
+        group:"CRM",
+        payAmount:"23597",
+        status:"אושרה לתשלום",
+        project:'P05188'
+
+    },
+       { 
+        isMarked:true,
+        date:1697856000000,
+        billNumber:"64641459",
+        secondDate:1697856000000,
+        group:"CRM",
+        payAmount:"23597",
+        status:"אושרה לתשלום",
+        project:'P05189'
 
     }
 

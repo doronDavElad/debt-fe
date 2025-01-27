@@ -36,9 +36,20 @@
             ></app-generic-input>
         </div>
        <div class="table_and_tabs">
+        
 
            <div class="marked_invoices">
-               
+            <ul>
+                <li [ngClass]="{actvieTab: activeTab===''}">
+                    <button (click)="selectProject('הכל')" >
+                        כל הפרוייקטים
+                    </button> </li>
+                <li *ngFor="let projectNum of uniqueProjects" [ngClass]="{actvieTab: activeTab===projectNum}">
+                    <button 
+                    (click)="selectProject(projectNum)"
+                    >{{projectNum}}</button>
+                </li>
+            </ul>  
         </div>
     
         <app-generic-table 

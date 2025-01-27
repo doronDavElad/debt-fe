@@ -3,4 +3,5 @@ export interface Itabs_sub_header{
    title:string,
    img:string
    controlName?:string
+   invoicesTyps:string[]
 }

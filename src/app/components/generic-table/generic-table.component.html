@@ -1,6 +1,8 @@
 <div class="container">
+    {{tabsDataToTable.title}}
     <table class="table">
-        <thead class="table_head">
+        <thead class="table_head"
+         >
             <tr class="title_row">
              
 
@@ -14,8 +16,9 @@
                     </th>
             </tr>
         </thead>
-        <tbody class="table_body" *ngIf="tableData">
-            <ng-container *ngFor="let rowData of tableData; let j = index">
+        <tbody class="table_body" >
+          
+            <ng-container  *ngFor="let rowData of tableData; let j = index">
 
                 <tr class="table_row" 
                 (click)="close(rowData)"
@@ -72,13 +75,29 @@
         </ng-container>
 
         </tbody>
-        <div *ngIf="!tableData"></div>
+     
+      
 
 
 
 
     </table>
 
+    <div *ngIf="tableData.length<=0" class="not_found_data  page_layout">
+        <div class="img_container" *ngIf="tabsDataToTable?.title==='חשבוניות במעקב'" >
+            <img class="no_found_img" src="../../../assets/images/no-invoices.svg" alt="">
+          <p class="not_found_text">לא נמצאו חשבוניות</p>
+          <!-- <p>אין כרגע חשבוניות סטטוס נדחו ע"י הלקוח</p> -->
+        </div>
+       
+        <div class="img_container" *ngIf="tabsDataToTable?.title === 'נדחו ע&quot;י הלקוח'">
+            <img class="no_found_img" src="../../../assets/images/no-reject-invoice.svg" alt="">
+            <p class="not_found_text">אין כרגע חשבוניות בסטטוס <br/>
+           נדחו ע"י הלקוח </p>
 
+          <!-- <p>אין כרגע חשבוניות סטטוס נדחו ע"י הלקוח</p> -->
+        </div>
+
+      </div>
 
 </div>

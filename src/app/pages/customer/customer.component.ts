@@ -21,7 +21,8 @@ export class CustomerComponent implements OnInit {
   tableData = signal<ITableRowData[]>([]);
   sortedData = signal<ITableRowData[]>([]);
   currentSortColumn = signal<string | null>(null);
-
+  uniqueProjects: string[] = [];
+  activeTab:string=''
   customerTableCards:customerCardsText[]=[
    {text: "חשבוניות לא מאושרות" },
    {text: "תקבולים פתוחים"},
@@ -41,6 +42,8 @@ export class CustomerComponent implements OnInit {
     if (data) {
       this.sortedData.set(data); 
       this.tableData.set(data)
+      this.uniqueProjects = [...new Set(this.sortedData().map((item: any) => item['project']).filter(Boolean))];
+
       console.log(11,this.customerData);
     }
      else {
@@ -66,6 +69,19 @@ export class CustomerComponent implements OnInit {
     }
   }
   
+  selectProject(projectNum: string): void {
+    if(projectNum==='הכל'){
+      this.activeTab=''
+      this.sortedData.set(this.tableData());
+        } 
+        else{
+this.activeTab=projectNum
+          const filteredData = this.tableData().filter((item: any) => item['project'] === projectNum);
+          return this.sortedData.set(filteredData);
+        }
+    
+  }
+
   handleOptionSelected(event: { option: string; index: number }): void {
     console.log('Option Selected:', event);
     this.taskeInputs[event.index].value = event.option;

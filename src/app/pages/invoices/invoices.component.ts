@@ -30,6 +30,7 @@ export class InvoicesComponent {
   currentSortColumn = signal<string | null>(null);
   drawerdata:IDrawerOrders={} as IDrawerOrders
   date: number | undefined; 
+  tabsDataToTable:Itabs_sub_header={} as Itabs_sub_header
   constructor(private invoiceService: InvoiceService) {
     this.exportToExcel = this.exportToExcel.bind(this);
     this.date = Date.now(); 
@@ -46,7 +47,7 @@ export class InvoicesComponent {
     });
 
     this.invoiceService.getDrawerData().subscribe((data) => {
-      this.drawerdata = data;  // Assign the drawer data
+      this.drawerdata = data;  
     });
 
   }
@@ -111,6 +112,13 @@ export class InvoicesComponent {
     console.log('Input Value Changed:', event);
   }
   
+  handleSelectTab(item:Itabs_sub_header){
+    console.log(this.tabsDataToTable);
+    
+
+  }
+
+
     handleOptionSelected(event: { option: string; index: number }): void {
     console.log('Option Selected:', event);
     this.taskeInputs[event.index].value = event.option;
@@ -195,7 +203,6 @@ export class InvoicesComponent {
   ]
 
   handleInputOutput(emittedData: { value: string, index: number }): void {
-    console.log(11,emittedData);
   
     const searchValue = emittedData.value.toLowerCase();
   
@@ -216,7 +223,22 @@ export class InvoicesComponent {
     }
   }
   
-  
+  onTabsDataReceived(tab: Itabs_sub_header) {
+    this.dataToTable = tab; 
+    
+    const invoiceTypes = this.dataToTable.invoicesTyps;  
+
+    if (invoiceTypes.includes('all')) {
+        this.sortedData.set(this.tableData());
+    } else {
+        const newDataFromSort = this.tableData().filter((item: any) => {
+            return invoiceTypes.includes(item['status']);
+        });
+        this.sortedData.set(newDataFromSort);
+    }
+}
+
+
 
   taskeInputs:IgenericInput[]=[
     {
@@ -251,11 +273,9 @@ export class InvoicesComponent {
   dataToTable: Itabs_sub_header = {
     value: '',
     title: '',
-    img: '',
+    img: '', 
+    invoicesTyps:[]
   }; 
-  onTabsDataReceived(tab: Itabs_sub_header) {
-    this.dataToTable = tab; 
-  }
 
 
 

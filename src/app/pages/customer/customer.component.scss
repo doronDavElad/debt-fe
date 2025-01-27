@@ -37,6 +37,7 @@
             .text{
                 font-size: 18px;
                 color: $subHeader_title;
+                white-space: nowrap;
             }
 
         }
@@ -49,7 +50,25 @@
         .marked_invoices{
             width: 142px;
             height: 254px;
-            border: 1px solid blue;
+            // border: 1px solid blue;
+            ul{
+                li{
+                 border-right: 1.5px solid $sent_border;
+                 margin-bottom: 2px;
+                 button{
+                     padding: 13px 16px 13px 0;
+                     font-size: 18px;
+                    }
+                }
+                .actvieTab{
+                    border-right: 3px solid $sent_border;
+                    button{
+
+                        font-weight: 700;
+                    }
+
+                }
+            }
 
         }
         .table{

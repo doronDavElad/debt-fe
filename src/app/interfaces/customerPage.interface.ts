@@ -32,7 +32,7 @@ export interface ICustomerPageDataInterface{
         },
     ],
     total_payment_amount:number,
-
+    // all_projects:[],
     all_invoices:ITableRowData[]
  
     
