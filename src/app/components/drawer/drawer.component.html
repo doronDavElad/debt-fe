@@ -93,7 +93,7 @@
         <div class="start_container">
             <p class="key">קוד לקוח <span class="value">{{drawerdata.customer_number}}</span> </p>
             <p class="key">קוד לקוח <span class="value">{{drawerdata.business_id}}</span></p>
-            <p class="key">שם לקוח <span class="mark_value">{{drawerdata.customer_name}}</span></p>
+            <p class="key">שם לקוח <button class="mark_value" (click)="setCustomerData()">{{drawerdata.customer_name}}</button></p>
         </div>
         <div class="middle_container">
             <p class="key">פרוייקט<span class="value">{{drawerdata.project_id}}</span></p>

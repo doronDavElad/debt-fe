@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, SimpleChanges, effect, signal } from '@angular/core';
 import { ICustomerPageDataInterface } from '../interfaces/customerPage.interface';
 import { HttpClient } from '@angular/common/http';
 import { customerpageMockData } from './../mockData/costomerPageData';
@@ -8,10 +8,18 @@ import { customerpageMockData } from './../mockData/costomerPageData';
 })
 export class CustomerPageServiceService {
   customerdata = signal<ICustomerPageDataInterface | null>(customerpageMockData);
+  dataToFetch = signal<{} | null>(customerpageMockData);
 
-  constructor(
+
+  constructor() {
     // private http: HttpClient
-    ) { }
+    effect(() => {
+      const currentCustomerData = this.customerdata();
+      console.log('Customer data updated:', currentCustomerData);  // Log each update
+    });
+  }
+    
+   
   // ngOnInit(){
   //   this.customerdata.set(customerpageMockData); 
   // }

@@ -29,7 +29,7 @@ export class GenericTableComponent implements OnInit {
     this.openDrawer.emit();
   }
     ngOnInit(): void {
-    console.log('tabsDataToTable:', this.tabsDataToTable); 
+    console.log(1234,'tabsDataToTable:', this.tabsDataToTable); 
   }
   close(rowData:ITableRowData) {    
     console.log(rowData);

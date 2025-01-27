@@ -32,6 +32,7 @@ export class CustomerComponent implements OnInit {
   constructor(private customerPageService: CustomerPageServiceService) {}
 
   ngOnInit(): void {
+    console.log(111,this.customerData);
     
     const data = this.customerPageService.customerdata()?.all_invoices;
     const pageData = this.customerPageService.customerdata();
