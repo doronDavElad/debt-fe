@@ -137,6 +137,8 @@
                 }
                 ::ng-deep .p-datepicker .p-datepicker-header {
                   background-color: inherit;
+                  border-bottom: none;
+
                 }
                 ::ng-deep .p-icon-wrapper {
 transform: rotate(180deg);                }
@@ -153,6 +155,7 @@ transform: rotate(180deg);                }
                     border-radius: 8px; 
                     position: absolute;
                     right: 0;
+                    
   }
               
                 &::after {
