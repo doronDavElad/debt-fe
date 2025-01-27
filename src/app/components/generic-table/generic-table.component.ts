@@ -24,7 +24,7 @@ export class GenericTableComponent implements OnInit {
   formatDate = formatDate;
   @Output() openDrawer = new EventEmitter<void>();
   @Output() toggleDrawer = new EventEmitter<void>();
-
+  isTooltipVisible = true;
   openDrawerAction() {
     this.openDrawer.emit();
   }

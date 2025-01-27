@@ -209,6 +209,7 @@
 //       }
 //     }
 //   }
+
 ::ng-deep {
     
     .custom_tooltip {
@@ -225,7 +226,7 @@
       border: 1px solid #E0E0E0 !important;
       
       // Animation
-      opacity: 0;
+      opacity: 1 !important;
       transform: scale(0.95);
       transition: opacity 150ms ease-in-out, transform 150ms ease-in-out !important;
       

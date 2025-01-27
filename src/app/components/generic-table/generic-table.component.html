@@ -40,12 +40,12 @@
                             'status': rowData[column.controlName] === 'ללא תגובה' || 
                                      rowData[column.controlName] === 'נדחתה' ||
                                      rowData[column.controlName] === 'נשלחה' ||
-                                     rowData[column.controlName] === 'אושר לתשלום',
+                                     rowData[column.controlName] === 'אושרה לתשלום',
                             'no_comment': rowData[column.controlName] === 'ללא תגובה',
                             'rejected': rowData[column.controlName] === 'לא נשלחה',
                             'didnt_send': rowData[column.controlName] === 'נדחתה',
                             'sent': rowData[column.controlName] === 'נשלחה',
-                            'agreed': rowData[column.controlName] === 'אושר לתשלום'
+                            'agreed': rowData[column.controlName] === 'אושרה לתשלום'
                         }"
                     >
                     <img  
@@ -56,10 +56,14 @@
                     [matTooltipPosition]="'below'"
                     [matTooltipShowDelay]="0"
                     matTooltipClass="custom_tooltip"
-                 
-                    >
+                    [matTooltipDisabled]="false"
+                    (mouseenter)="tooltip.show()"
+                    (mouseleave)="tooltip.show()"  
+                    #tooltip="matTooltip"
+                  >
+                  
                         <p>
-                            {{ rowData[column.controlName]|json }}
+                            {{ rowData[column.controlName] }}
                         </p>
                       
                     </div>

@@ -38,14 +38,14 @@ export const invoicesTable = [
    {
     isMarked:false,
      customerId: 5956464,
-     customerName: "אושר עד",
+     customerName: "אושרה עד",
      projectName: "P08976",
      date: 1732060800000,
      billNumber: "366665663",
      secondDate: 1704067200000,
      payAmount: "8574",
      eladEmployee: "שירה שטיינבוך",
-     status: "אושר לתשלום",
+     status: "אושרה לתשלום",
    },
    {
     isMarked:false,
@@ -93,7 +93,7 @@ export const invoicesTable = [
      secondDate: 1704067200000,
      payAmount: "8574",
      eladEmployee: "משה זוכמיר",
-     status: "אושר לתשלום",
+     status: "אושרה לתשלום",
    },
    {
     isMarked:false,
