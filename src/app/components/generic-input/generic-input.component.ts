@@ -21,6 +21,7 @@ registerLocaleData(localeHe)
 export class GenericInputComponent {
   @Input() taskeInputs: IgenericInput[] = [];
   @Output() InputValue:EventEmitter<{value:string,index:number}>=new EventEmitter();
+  @Output() sortByDate:EventEmitter<{value:string}>=new EventEmitter();
   @Output() optionSelected: EventEmitter<{ option: string; index: number }> = new EventEmitter();
   @Output() dateChange: EventEmitter<number> = new EventEmitter();
   @Input() exportToExcel: () => void = () => {};
@@ -48,18 +49,14 @@ export class GenericInputComponent {
 
   
 
-onDateChange(selectedDate: Date[]): void {
-  console.log(selectedDate);
-  
-  
-  if (selectedDate && selectedDate.length > 0 && selectedDate[0]) {
-    const timestamp = selectedDate[0].getTime();
-    this.dateChange.emit(timestamp); 
-    console.log('Selected Date in Child (Timestamp):', timestamp);
-  } else {
-    console.warn('No valid date selected');
+  onDateChange(selectedDate: Date | null): void {
+    if (selectedDate) {
+      const timestamp = selectedDate.getTime();
+      console.log('Original date:', selectedDate);
+      console.log('Timestamp:', timestamp);
+      this.sortByDate.emit(timestamp);
+    }
   }
-}
 
   onChnageValue(event: Event,index:number): void {
     const {value} = event.target as HTMLInputElement;

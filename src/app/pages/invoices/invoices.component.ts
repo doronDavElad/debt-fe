@@ -31,6 +31,7 @@ export class InvoicesComponent {
   drawerdata:IDrawerOrders={} as IDrawerOrders
   date: number | undefined; 
   tabsDataToTable:Itabs_sub_header={} as Itabs_sub_header
+  
   constructor(private invoiceService: InvoiceService) {
     this.exportToExcel = this.exportToExcel.bind(this);
     this.date = Date.now(); 
@@ -67,8 +68,8 @@ export class InvoicesComponent {
   
 
   
- onDateChange(selectedDate: number): void {
-    console.log('Selected Date in Parent:', selectedDate);
+ sortByDate(date: number): void {
+    console.log('Selected Date in Parent:', date);
   }
 
   sortData = (colData: ItableValues): void => {
@@ -114,8 +115,6 @@ export class InvoicesComponent {
   
   handleSelectTab(item:Itabs_sub_header){
     console.log(this.tabsDataToTable);
-    
-
   }
 
 
