@@ -31,7 +31,7 @@ export class InvoicesComponent {
   drawerdata:IDrawerOrders={} as IDrawerOrders
   date: number | undefined; 
   tabsDataToTable:Itabs_sub_header={} as Itabs_sub_header
-  
+  selectedDate: any ; 
   constructor(private invoiceService: InvoiceService) {
     this.exportToExcel = this.exportToExcel.bind(this);
     this.date = Date.now(); 

@@ -29,6 +29,7 @@ export class GenericInputComponent {
   minDate: Date;
   isDropdownOpen: boolean = false; 
   
+  
   constructor(private primeNGConfig: PrimeNGConfig) {
     this.minDate = new Date();
     this.primeNGConfig.setTranslation({
@@ -54,7 +55,7 @@ export class GenericInputComponent {
       const timestamp = selectedDate.getTime();
       console.log('Original date:', selectedDate);
       console.log('Timestamp:', timestamp);
-      this.sortByDate.emit(timestamp);
+      this.sortByDate.emit({ value: timestamp.toString() });  // Assuming timestamp is a number
     }
   }
 

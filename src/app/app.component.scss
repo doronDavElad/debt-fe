@@ -1,0 +1,25 @@
+@font-face {
+    font-family: 'Almoni-Bold';
+    src: url('assets/fonts/almoni-bold-aaa.eot'); /* For IE */
+    src: url('assets/fonts/almoni-bold-aaa.eot?#iefix') format('embedded-opentype'),
+         url('assets/fonts/almoni-bold-aaa.woff2') format('woff2'),
+         url('assets/fonts/almoni-bold-aaa.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+  }
+@font-face {
+    font-family: 'Almoni-medium';
+    src: url('assets/fonts/almoni-medium-aaa.eot'); /* For IE */
+    src: url('assets/fonts/almoni-medium-aaa.eot?#iefix') format('embedded-opentype'),
+         url('assets/fonts/almoni-medium-aaa.woff2') format('woff2'),
+         url('assets/fonts/almoni-medium-aaa.woff') format('woff');
+    font-style: normal;
+}
+    @font-face {
+    font-family: 'Almoni-regular';
+    src: url('assets/fonts/almoni-regular-aaa.ttf'); /* For IE */
+    src: url('assets/fonts/almoni-regular-aaa.ttf') format('embedded-opentype'),
+         url('assets/fonts/almoni-regular-aaa.ttf') format('woff2'),
+         url('assets/fonts/almoni-regular-aaa.ttf') format('woff');
+    font-style: normal;
+  }
