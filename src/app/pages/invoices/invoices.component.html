@@ -16,7 +16,6 @@
             (InputValue)="handleInputOutput($event)"
             (optionSelected)="handleOptionSelected($event)"
             [exportToExcel]="exportToExcel"
-            (toggleDrawer)="toggleDrawer()"
             [date]="date"
             (sortByDate)="sortByDate(selectedDate)"
             
@@ -30,7 +29,7 @@
         [taskeInputs]="taskeInputs"
         [sortData]="sortData.bind(this)"
         [currentSortColumn]="currentSortColumn()"
-        (toggleDrawer)="toggleDrawer()"
+        (toggleDrawer)="toggleDrawer($event)"
         ></app-generic-table>
         
     </div>

@@ -23,7 +23,7 @@ export class GenericTableComponent implements OnInit {
   @Input() currentSortColumn: string | null = null;
   formatDate = formatDate;
   @Output() openDrawer = new EventEmitter<void>();
-  @Output() toggleDrawer = new EventEmitter<void>();
+  @Output() toggleDrawer = new EventEmitter<ITableRowData | void>();
   isTooltipVisible = true;
   openDrawerAction() {
     this.openDrawer.emit();
@@ -31,11 +31,11 @@ export class GenericTableComponent implements OnInit {
     ngOnInit(): void {
     console.log(1234,'tabsDataToTable:', this.tabsDataToTable); 
   }
-  close(rowData:ITableRowData) {    
+  toggleDrower(rowData:ITableRowData) {    
     console.log(rowData);
     //need to make fetch data for rowData
     
-    this.toggleDrawer.emit();
+    this.toggleDrawer.emit(rowData);
   }
 
 

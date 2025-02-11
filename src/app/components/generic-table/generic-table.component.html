@@ -20,7 +20,7 @@
             <ng-container  *ngFor="let rowData of tableData; let j = index">
 
                 <tr class="table_row" 
-                (click)="close(rowData)"
+                (click)="toggleDrower(rowData)"
                 tabindex="0"
                 role="button">
                     <td class="table_data_container"

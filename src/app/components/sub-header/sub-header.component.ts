@@ -15,8 +15,6 @@ export class SubHeaderComponent {
   selectedTab: Itabs_sub_header | null = null;
 
   selectTab(tab: Itabs_sub_header) {
-   
-    
     this.selectedTab = tab;
     this.tabsDataToTable.emit(tab); 
   }
@@ -28,14 +26,16 @@ export class SubHeaderComponent {
   }
 tabs:Itabs_sub_header[]=[
   {
+  id:1,
    value:'90',
    title:'חשבוניות במעקב',
     controlName:'',
    img:"assets/images/invoice.svg",
-   invoicesTyps:['all']
+   invoicesTyps:['נשלחה',"ללא תגובה","אושרה לתשלום","נדחתה","שגיאה בשליחה"]
 
   },
   {
+    id:2,
    value:'12',
    title:'נדחו ע"י הלקוח',
    controlName:'',
@@ -44,6 +44,7 @@ tabs:Itabs_sub_header[]=[
 
   },
   {
+    id:3,
    value:'23',
    title:'ללא תגובה',
    controlName:'',
@@ -52,6 +53,7 @@ tabs:Itabs_sub_header[]=[
 
   },
   {
+    id:4,
    value:'8',
    title:'עם התאמה לתקבול',
    controlName:'',
@@ -60,6 +62,7 @@ tabs:Itabs_sub_header[]=[
 
   },
   {
+    id:5,
    value:'3',
    title:'בחוב',
    controlName:'',

@@ -29,6 +29,7 @@ export class InvoicesComponent {
   isOpenDrawer:boolean = false;
   currentSortColumn = signal<string | null>(null);
   drawerdata:IDrawerOrders={} as IDrawerOrders
+  drawerDataToFetch={}
   date: number | undefined; 
   tabsDataToTable:Itabs_sub_header={} as Itabs_sub_header
   selectedDate: any ; 
@@ -41,7 +42,6 @@ export class InvoicesComponent {
 
   ngOnInit(): void {
     console.log('isOpenDrawer on init:', this.isOpenDrawer);
-    
     this.invoiceService.getInvoiceData().subscribe((data) => {
       this.tableData.set(data); 
       this.sortedData.set(data); 
@@ -53,8 +53,13 @@ export class InvoicesComponent {
 
   }
   
-  toggleDrawer() {
+  toggleDrawer(data?:any) {
+    console.log(11,data);
+    
     this.isOpenDrawer = !this.isOpenDrawer;
+    if (data) {
+      this.drawerDataToFetch = data;
+    }
   }
 
   exportToExcel(): void {
@@ -72,7 +77,7 @@ export class InvoicesComponent {
     console.log('Selected Date in Parent:', date);
   }
 
-  sortData = (colData: ItableValues): void => {
+  sortData = (colData: ItableValues): void => {    
     try {
       const key = colData.controlName;
       
@@ -119,6 +124,7 @@ export class InvoicesComponent {
 
 
     handleOptionSelected(event: { option: string; index: number }): void {
+      
     console.log('Option Selected:', event);
     this.taskeInputs[event.index].value = event.option;
     const selectedStatus = event.option.toLowerCase();
@@ -223,17 +229,27 @@ export class InvoicesComponent {
   }
   
   onTabsDataReceived(tab: Itabs_sub_header) {
+    console.log(tab);
+    
+    
     this.dataToTable = tab; 
     
     const invoiceTypes = this.dataToTable.invoicesTyps;  
-
+  
     if (invoiceTypes.includes('all')) {
         this.sortedData.set(this.tableData());
     } else {
+      if(tab.id===5){}
+      else{
+
         const newDataFromSort = this.tableData().filter((item: any) => {
-            return invoiceTypes.includes(item['status']);
+          console.log(item);
+          
+          
+          return invoiceTypes.some((type: string) => item['status'].includes(type));
         });
         this.sortedData.set(newDataFromSort);
+      }
     }
 }
 
@@ -270,6 +286,7 @@ export class InvoicesComponent {
    
   ]
   dataToTable: Itabs_sub_header = {
+    id:1,
     value: '',
     title: '',
     img: '', 
