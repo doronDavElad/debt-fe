@@ -4,6 +4,7 @@
     font-size: 14px;
   }
 .container{
+
     margin: 0 16px;
 }
 .table_filters{
@@ -17,6 +18,8 @@
     border-spacing: 0;
     padding-inline: 16px;
     border-collapse: collapse;
+    font-family: $main_font;
+    
     // place-self: center;
     
 

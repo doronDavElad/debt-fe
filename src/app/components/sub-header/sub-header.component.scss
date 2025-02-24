@@ -57,13 +57,15 @@
                     font-size: 40px;
                     font-weight: 500;
                     place-self: start;
-
-
+                    font-family: $bold_font;
+                    
+                    
                 }
                 .title{
                     font-size:18px;
                     font-weight: 400;
                     color: $subHeader_title;
+                    font-family: $main_font;
                     
                 }
             }

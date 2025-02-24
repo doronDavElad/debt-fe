@@ -1,5 +1,7 @@
 @import '../../style/main.scss';
-
+*{
+    font-family: $main_font;
+}
 .container{
     width: 652px;
     height: 704px;
@@ -11,6 +13,8 @@
     height: 36px;
     font-size: 22px;
     font-weight: 500;
+    font-family: $bold_font;
+    
 }
 
       

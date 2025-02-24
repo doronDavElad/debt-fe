@@ -14,13 +14,34 @@
         display: flex;
         align-items: center;
         gap:36px;
+        height: 100%;
         .header_links{
-            display: inline-block;
-            
+            height: 100%;
+            display: flex;
+                align-items: center;            
             .item{
                 display: inline-block;
                 padding-inline-end: 36px;
+                font-family: $main_font;
+                font-size: 18px;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                a{
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                }
             }
+            .active {
+                font-family: $bold_font;
+                font-weight: bold !important; 
+                text-decoration: underline;
+
+                a{
+                    border-bottom: 2px solid black;
+                }
+              }
         }
 
     }
@@ -91,3 +112,7 @@
     }
     
 }
+.header_links .item a.active {
+    font-family: 'Almoni-Bold', sans-serif !important;
+  }
+  

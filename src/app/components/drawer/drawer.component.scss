@@ -12,6 +12,7 @@ padding: 24px;
 box-shadow: $drawer-shadow;
 position: absolute
 ;
+font-family: $main_font;
 .close_modal{
     position: absolute;
     left: 31px;
@@ -90,6 +91,7 @@ position: absolute
 
                 .value{
                     color: black;
+                    font-family: $bold_font !important;
 
                 }
             }
@@ -132,6 +134,7 @@ position: absolute
                     font-weight: 500;
                     width: 140px;
                     display: inline;
+
                     
                 }
                 
@@ -162,6 +165,7 @@ position: absolute
             font-weight: 500;
             color: black ;
             margin-inline-start: 4px;
+            // font-family: $bold_font;
         }
         }
         .mark_value{
@@ -244,4 +248,8 @@ top: 25px;
 }
 .rotate_chevron{
     transform: rotate(180deg);
+}
+
+.bold_value{
+    font-family: $bold_font;
 }

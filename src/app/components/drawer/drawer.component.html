@@ -48,7 +48,7 @@
     <div class="payment_container">
         <div class="start_container">
             <p class="key">סכום<span class="value">{{drawerdata.payment_amount}}</span></p>
-            <p class="key">סכום כולל מע"מ<span class="value">{{drawerdata.payment_with_tax}}</span></p>
+            <p class="key">סכום כולל מע"מ<span class="value bold_value">{{drawerdata.payment_with_tax}}</span></p>
         </div>
         <div class="middle_container">
             <p class="key">סטטוס בסאפ<span class="value">{{drawerdata.sap_status}}</span></p>
@@ -76,9 +76,9 @@
                     <p class="phone">{{drawerdata.elad_contact.phone}}</p>
                     <div>
                         <div class="mail_btn">
-                            <p class="mail">
+                            <a class="mail" [href]="'mailto:' + drawerdata.elad_contact.email" >
                                 {{drawerdata.elad_contact.email}}
-                            </p>
+                            </a>
                             <button   (click)="copyToClipboard(drawerdata.elad_contact.email)" class="btn">העתק</button>
                         </div>
 
@@ -121,9 +121,9 @@
                     <p class="phone">{{contact.phone}}</p>
                     <div>
                         <div class="mail_btn">
-                            <p class="mail">
+                            <a class="mail" [href]="'mailto:' + drawerdata.elad_contact.email">
                                 {{contact.email}}
-                            </p>
+                            </a>
                             <button (click)="copyToClipboard(contact.email)" class="btn">העתק</button>
                         </div>
 
