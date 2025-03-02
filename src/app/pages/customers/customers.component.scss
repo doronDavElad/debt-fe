@@ -1,5 +1,7 @@
 @import '../../style/main.scss';
-
+*{
+    font-family: $main_font;
+}
 .flexPage{
     display: flex;
     gap: 32px;

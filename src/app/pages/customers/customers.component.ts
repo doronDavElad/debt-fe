@@ -2,7 +2,7 @@
 import { Component } from '@angular/core';
 import { IncoivesSummaryComponent } from "../../components/incoives-summary/incoives-summary.component";
 import { IpaidInvoices } from '../../components/incoives-summary/invoices-summary.interface';
-import { CustomersServiceService } from './customers-service.service';
+import { CustomersServiceService } from '../../services/customers-service.service';
 import { InvoicesDisplayDataComponent } from "../../components/invoices-display-data/invoices-display-data.component";
 import { IInvoicesTable } from '../../components/invoices-display-data/invoices-display-data.interface';
 

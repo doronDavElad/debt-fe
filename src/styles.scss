@@ -39,15 +39,16 @@ $debt_fe-theme: mat.define-theme((
 // Comment out the line below if you want to use the deprecated `color` inputs.
 // @include mat.color-variants-backwards-compatibility($debt_fe-theme);
 @import './app/style/main.scss';
-*{
-    direction: rtl;
-    font-family: 'Almoni-regular', sans-serif;;
+// *{
+//     direction: rtl;
+//     font-family: 'Almoni-regular', sans-serif;
 
-}
+// }
 body{
     margin:0;
     width: 100%;
     background-color: $app-background;
+        font-family: 'Almoni-regular', sans-serif;
 }
 .page_layout{
     // margin: 0 15.208vw;

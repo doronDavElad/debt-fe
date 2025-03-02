@@ -3,13 +3,14 @@
 .flex_container{
     display: flex;
     gap: 32px;
-    
+    font-family: $main_font;
 }
 
 .cardsData {
     display: flex;
     flex-direction: column;
     gap: 8px;
+   
 }
 
 .tableData{

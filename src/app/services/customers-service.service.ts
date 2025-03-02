@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { IpaidInvoices } from '../../components/incoives-summary/invoices-summary.interface';
-import { paidInvoices, totalInvoices } from './customerMockData';
+import { IpaidInvoices } from '../components/incoives-summary/invoices-summary.interface';
+import { paidInvoices, totalInvoices } from '../pages/customers/customerMockData';
 
 @Injectable({
   providedIn: 'root'
