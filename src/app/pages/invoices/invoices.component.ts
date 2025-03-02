@@ -6,7 +6,7 @@ import { invoicesTable } from '../../mockData/bills';
 import { Itabs_sub_header } from '../../components/sub-header/subHeader_mockData';
 import { IgenericInput } from '../../components/generic-input/genericInput.interface';
 import { GenericInputComponent } from "../../components/generic-input/generic-input.component";
-import { InvoiceService } from './invoice.service';
+import { InvoiceService } from '../../services/invoice.service';
 import * as XLSX from 'xlsx';
 import { DrawerComponent } from "../../components/drawer/drawer.component";
 import { CommonModule } from '@angular/common';

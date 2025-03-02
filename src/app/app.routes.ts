@@ -21,5 +21,10 @@ import('./pages/customers/customers.component').then((m=>m.CustomersComponent))
 loadComponent:()=>
 import('./pages/customer/customer.component').then((m=>m.CustomerComponent))
 },
+    {
+        path:'archive',
+loadComponent:()=>
+import('./pages/archive-page/archive-page.component').then((m=>m.ArchivePageComponent))
+},
 
 ];

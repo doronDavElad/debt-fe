@@ -34,6 +34,7 @@ export class HeaderComponent {
   headerLinks:HeaderLinksInterface[]=[
    { name:'חשבוניות', path:"/invoices"},
    { name:'לקוחות', path:"/customers"},
+   { name:'ארכיון', path:"/archive"},
   ]
 
 }

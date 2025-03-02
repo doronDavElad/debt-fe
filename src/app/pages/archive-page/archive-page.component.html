@@ -1,0 +1,27 @@
+<div class="tableContainer page_layout " >
+    <div class="table_filters" >
+        <h2>{{title}}</h2>
+
+        <app-generic-input
+        class="inputs"
+        [taskeInputs]="taskeInputs"
+        (InputValue)="handleInputOutput($event)"
+        (optionSelected)="handleOptionSelected($event)"
+        [exportToExcel]="exportToExcel"
+        [date]="date"
+        (sortByDate)="sortByDate(selectedDate)"
+        
+     
+        ></app-generic-input>
+    </div>
+    <app-generic-table 
+    [allData]="tableMockData"
+    [tableData]="sortedData()"
+    [tabsDataToTable]="dataToTable"
+    [taskeInputs]="taskeInputs"
+    [sortData]="sortData.bind(this)"
+    [currentSortColumn]="currentSortColumn()"
+    (toggleDrawer)="toggleDrawer($event)"
+    ></app-generic-table>
+    
+</div>
