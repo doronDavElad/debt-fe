@@ -1,22 +1,31 @@
 import { CommonModule, getLocaleMonthNames, registerLocaleData } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { IgenericInput } from './genericInput.interface';
 import { FormsModule } from '@angular/forms';
 import { CalendarModule } from 'primeng/calendar';
 import { LOCALE_ID } from '@angular/core';
 import localeHe from '@angular/common/locales/he';
 import { PrimeNGConfig } from 'primeng/api'; // Add this import
-
+import {MatDatepicker, MatDatepickerModule} from '@angular/material/datepicker';
+import {ChangeDetectionStrategy} from '@angular/core';
+import {provideNativeDateAdapter} from '@angular/material/core';
+import {MatFormFieldControl, MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
+import { OverlayModule } from '@angular/cdk/overlay';
 registerLocaleData(localeHe)
 @Component({
   selector: 'app-generic-input',
   standalone: true,
-  imports: [CommonModule,FormsModule,CalendarModule],
+  imports: [CommonModule,FormsModule,CalendarModule,MatDatepickerModule,MatFormFieldModule, MatInputModule, MatDatepickerModule, MatIconModule,OverlayModule],
   providers: [
-    { provide: LOCALE_ID, useValue: 'he' } 
+    { provide: LOCALE_ID, useValue: 'he' } ,
+    provideNativeDateAdapter()
   ],
   templateUrl: './generic-input.component.html',
-  styleUrl: './generic-input.component.scss'
+  styleUrl: './generic-input.component.scss',
+  encapsulation: ViewEncapsulation.None
+
 })
 export class GenericInputComponent {
   @Input() taskeInputs: IgenericInput[] = [];
@@ -26,10 +35,31 @@ export class GenericInputComponent {
   @Output() dateChange: EventEmitter<number> = new EventEmitter();
   @Input() exportToExcel: () => void = () => {};
   @Input() date: number | undefined;
+  selectedDate: Date | null = null; 
   minDate: Date;
-  isDropdownOpen: boolean = false; 
+  isDropdownOpen: boolean = false;
   
-  
+  @ViewChild('picker') picker!: MatDatepicker<any>; 
+  @ViewChild('dateInputContainer') container!: ElementRef;
+
+  ngAfterViewInit() {
+    this.picker.openedStream.subscribe(() => {
+      // Find the datepicker's content panel in the overlay container
+      setTimeout(() => {
+        const datepickerContent = document.querySelector('.mat-datepicker-content');
+        if (datepickerContent && this.container) {
+          // Move it from overlay container to your own container
+          this.container.nativeElement.appendChild(datepickerContent);
+          // Apply fixed positioning
+          (datepickerContent as HTMLElement).style.position = 'absolute';
+          (datepickerContent as HTMLElement).style.top = '40px';
+          (datepickerContent as HTMLElement).style.left = '0';
+          (datepickerContent as HTMLElement).style.zIndex = '1000';
+        }
+      }, 0);
+    });
+  }
+    
   constructor(private primeNGConfig: PrimeNGConfig) {
     this.minDate = new Date();
     this.primeNGConfig.setTranslation({
@@ -46,18 +76,14 @@ export class GenericInputComponent {
     });
   }
 
-
+  onDateChange(date: Date): void {
+    console.log('Selected Date:', date);
+    // Additional logic when the date is changed
+  }
 
   
 
-  onDateChange(selectedDate: Date | null): void {
-    if (selectedDate) {
-      const timestamp = selectedDate.getTime();
-      console.log('Original date:', selectedDate);
-      console.log('Timestamp:', timestamp);
-      this.sortByDate.emit({ value: timestamp.toString() });  // Assuming timestamp is a number
-    }
-  }
+
 
   onChnageValue(event: Event,index:number): void {
     const {value} = event.target as HTMLInputElement;
@@ -75,5 +101,7 @@ export class GenericInputComponent {
   ngOnInit(): void {
     // console.log('allData:', this.taskeInputs); 
   }
+
+  
 
 }

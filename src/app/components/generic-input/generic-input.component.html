@@ -8,9 +8,26 @@
       </div>
 
       <div *ngSwitchCase="'date'" class="date_input_container">
-        <div class="card flex justify-center">
+      
+          <!-- <mat-form-field class="example-full-width"> -->
+            <input 
+            class="input_date"
+            matInput 
+            [matDatepicker]="picker" 
+            placeholder="תאריך ערך מ"
+          />          
+          <mat-datepicker-toggle matIconSuffix [for]="picker">
+            <mat-icon>keyboard_arrow_down</mat-icon>
+          </mat-datepicker-toggle> 
+          <mat-datepicker #picker 
+            panelClass="custom-datepicker"
+            xPosition="start"
+            yPosition="below">
+          </mat-datepicker>
+          <!-- </mat-form-field> -->
+          
           <!-- <p-datepicker [(ngModel)]="date" view="month" dateFormat="mm/yy" /> -->
-          <p-calendar 
+          <!-- <p-calendar 
           [(ngModel)]="date" 
           view="month" 
           dateFormat="mm/yy"
@@ -18,7 +35,8 @@
           styleClass="custom_calendar"
           [maxDate]="minDate"
           (onSelect)="onDateChange($event)"
-        />      </div>
+        />      -->
+      
         </div> 
      
        
