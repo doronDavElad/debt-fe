@@ -40,12 +40,16 @@
                             'status': rowData[column.controlName] === 'ללא תגובה' || 
                                      rowData[column.controlName] === 'נדחתה' ||
                                      rowData[column.controlName] === 'נשלחה' ||
+                                     rowData[column.controlName] === 'שולמה' ||
+                                     rowData[column.controlName] === 'זוכתה' ||
                                      rowData[column.controlName] === 'אושרה לתשלום',
                             'no_comment': rowData[column.controlName] === 'ללא תגובה',
                             'rejected': rowData[column.controlName] === 'לא נשלחה',
                             'didnt_send': rowData[column.controlName] === 'נדחתה',
                             'sent': rowData[column.controlName] === 'נשלחה',
-                            'agreed': rowData[column.controlName] === 'אושרה לתשלום'
+                            'agreed': rowData[column.controlName] === 'אושרה לתשלום',
+                            'paid': rowData[column.controlName] === 'שולמה',
+                            'credit': rowData[column.controlName] === 'זוכתה',
                         }"
                     >
                     <img  

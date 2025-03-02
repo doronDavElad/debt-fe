@@ -105,6 +105,7 @@
                         display: flex;
                         align-items: center;
                         justify-content: space-evenly;
+                        white-space:nowrap;
 
                          @include status_p_tag
                     }
@@ -121,6 +122,8 @@
                     .rejected{
                         display: flex;
                         gap: 5px;
+                        white-space:nowrap;
+
 
                         p{
                             color: $rejected_color;
@@ -149,6 +152,21 @@
                         p{
 
                             @include status_p_tag
+                        }
+                    }
+                    .credit{
+                        background-color: $credit_background;
+                        border: $credit_border;
+                        p{
+                            color:$credit_text_color;
+                        }
+                    }
+                    .paid{
+                        background-color:$paid_backgroud;
+                        border:$paid_border;
+                        p{
+                            color:$paid_text_color;
+
                         }
                     }
 
