@@ -6,6 +6,7 @@ import { IInvoicesTable } from '../invoices-display-data/invoices-display-data.i
 import { CommonModule } from '@angular/common';
 import { GenericInputComponent } from "../generic-input/generic-input.component";
 import { IgenericInput } from '../generic-input/genericInput.interface';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-incoives-summary',
@@ -30,6 +31,8 @@ constructor(  private cdr: ChangeDetectorRef,
 ngOnInit(): void {
   
   this.dataToDisplay.set([...this.invoicesData]); 
+  this.exportToExcel = this.exportToExcel.bind(this);
+
 }
 toggleActive(id: number,type:string): void {
   if(type==='is_active_status_filter'){
@@ -75,11 +78,13 @@ filterInvoicesByStatus(status: string): void {
   // }
 
   exportToExcel(): void {
-    // const data = this.sortedData(); 
-    // const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(data);
-    // const workbook: XLSX.WorkBook = XLSX.utils.book_new();
-    // XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
-    // XLSX.writeFile(workbook, `invoices-table-${Date.now()}.xlsx`);
+    console.log(1,this.dataToDisplay());
+    
+    const data = this.dataToDisplay(); 
+    const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(data);
+    const workbook: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
+    XLSX.writeFile(workbook, `invoices-table-${Date.now()}.xlsx`);
   }
 
   tabsTableStructure:IInvoicesTable[]=[

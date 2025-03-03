@@ -12,11 +12,14 @@
     background-color:  $background-white;
     border-radius: 8px;
     padding:16px ;
-
-   .title{
-    height: 36px;
-    font-size: 22px;
-    font-weight: 500;
+.title_and_btn_container{
+    display: flex;
+    justify-content: space-between;
+    .title{
+        height: 36px;
+        font-size: 22px;
+        font-weight: 500;
+    }
 }
 .prices_container{
     height: 52px;

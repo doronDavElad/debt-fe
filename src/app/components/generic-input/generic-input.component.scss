@@ -8,25 +8,25 @@
     .input_type{
         height: 100%;
         .text_input_container{
-            min-width: 18rem;
+            // min-width: 18rem;
             height: 100%;
             border:  $border_grey;
             border-radius: 8px;
             display: flex;
             align-items: center;
            .search_img{
-            width: 20px;
+            // width: 20px;
             height: 20px;
             padding-inline-start: 10px;
             padding-inline-end: 4px;
         } 
         .text_input{
-            width: 95%;
+            // width: 95%;
             height: 100%;
             border: none;
             border: 0;
             padding: 0;
-            min-width: 15.6rem;
+            // min-width: 13rem;
             margin-inline-end: 8px;
             outline: none;
 
@@ -52,7 +52,7 @@
                 height: 100%;
                
                 p{
-                    
+                  margin: 0;  
                 }
                 .select_chevron{
                     transition: transform 0.3s ease;
@@ -111,7 +111,7 @@
             //another input type here
 
             .date_input_container {
-                width: 263px; 
+                // width: 263px; 
                 border:$border_grey; 
                 border-radius: 8px; 
                 display: flex; 
@@ -239,4 +239,7 @@
       ::ng-deep .cdk-overlay-pane {
         top: 335.5px !important;
         left: 581px !important;
+      }
+      ::ng-deep .mat-datepicker-content {
+      background-color: green !important;
       }

@@ -8,18 +8,35 @@ import localeHe from '@angular/common/locales/he';
 import { PrimeNGConfig } from 'primeng/api'; // Add this import
 import {MatDatepicker, MatDatepickerModule} from '@angular/material/datepicker';
 import {ChangeDetectionStrategy} from '@angular/core';
-import {provideNativeDateAdapter} from '@angular/material/core';
+import {MAT_DATE_FORMATS, MAT_DATE_LOCALE, provideNativeDateAdapter} from '@angular/material/core';
 import {MatFormFieldControl, MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import { OverlayModule } from '@angular/cdk/overlay';
+import '@angular/common/locales/global/he';
+
 registerLocaleData(localeHe)
+
+export const HEBREW_DATE_FORMATS = {
+  parse: {
+    dateInput: 'DD/MM/YYYY'
+  },
+  display: {
+    dateInput: 'DD/MM/YYYY',
+    monthYearLabel: 'MMMM YYYY',
+    dateA11yLabel: 'DD/MM/YYYY',
+    monthYearA11yLabel: 'MMMM YYYY'
+  }
+};
+
+
 @Component({
   selector: 'app-generic-input',
   standalone: true,
   imports: [CommonModule,FormsModule,CalendarModule,MatDatepickerModule,MatFormFieldModule, MatInputModule, MatDatepickerModule, MatIconModule,OverlayModule],
   providers: [
-    { provide: LOCALE_ID, useValue: 'he' } ,
+    { provide: MAT_DATE_LOCALE, useValue: 'he-IL' },
+    { provide: MAT_DATE_FORMATS, useValue: HEBREW_DATE_FORMATS },
     provideNativeDateAdapter()
   ],
   templateUrl: './generic-input.component.html',

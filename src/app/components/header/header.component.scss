@@ -103,11 +103,41 @@
         max-height: 0;
         overflow: hidden;
         transition: all ease 0.5s;
-      
-       &.select_menu_open{
-        max-height: 100px;
+        width: 151px;
+        height: 176px;
+        box-shadow: $drawer-shadow;
+        &.select_menu_open{
+            min-height: 176px;
+            padding: 8px;
+            border: 1px solid rgba(190, 190, 190, 1);
+            border-radius: 8px;
+            background-color: $background-white;
         
         
+       }
+
+       .list{
+        .list_item{
+            display: flex;
+            align-items: center; 
+            gap: 8px; 
+            padding-inline-start: 8px;
+            background-color:$background_menu_item;
+            height: 32px;
+            margin-bottom: 4px;
+            padding: 0 8px; 
+            cursor: pointer;
+
+            button{
+                cursor: pointer;
+            }
+        }
+        .last_item{
+        }
+        .divider{
+            height: 16px;
+        }
+
        }
     }
     

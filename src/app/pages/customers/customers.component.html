@@ -1,4 +1,3 @@
-<p>customers works!</p>
 <div class="page_layout flexPage">
 
     <app-incoives-summary
@@ -8,7 +7,16 @@
     ></app-incoives-summary>
 
     <div class="container">  
-        <h2 class="title">סה"כ תקבולים פתוחים</h2> 
+        <div class="title_and_btn_container">
+
+            <h2 class="title">סה"כ תקבולים פתוחים</h2> 
+            <app-generic-input
+            [taskeInputs]="taskeInputs"
+            [exportToExcel]="exportToExcel"
+
+            >
+        </app-generic-input>
+        </div>
         <div class="prices_container">
             <p class="item">
             
@@ -38,7 +46,7 @@
               {{'12449.56'.toLocaleString()}}
             </p> -->
         </div>
-        
+      
         <app-invoices-display-data
         [invoicesData]="totalData"
         [highestPrice]="highestPrice"

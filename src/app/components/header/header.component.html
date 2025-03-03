@@ -29,11 +29,24 @@
             <img [ngClass]="imageClass" src="../../../assets/images/chevron_down.svg" alt="chevron open select options">
             
             <div class="select_menu" [ngClass]="{'select_menu_open': isMenuOpen}">
-                <ul>
-                  <li>Option 1</li>
-                  <li>Option 2</li>
-                  <li>Option 3</li>
-                  <!-- Add more options as needed -->
+                <ul class="list">
+                    <li class="list_item">
+                        <button>אלעד פתרונות</button>
+                      </li>
+                  <li class="list_item">
+                    <button>טקסט</button>
+                  </li>
+                  <li class="list_item">
+                    <button>טקסט</button>
+                  </li>
+                  <li class="divider">
+                    <img src="../../../assets/images/divider.svg" alt="">
+                  </li>
+                  <li class="list_item last_item">
+                    <img src="../../../assets/images/logOut.svg" alt="">
+                    <button>התנתקות</button>
+                  </li>
+                
                 </ul>
               </div>
 
