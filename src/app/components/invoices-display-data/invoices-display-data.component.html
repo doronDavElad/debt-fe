@@ -1,6 +1,6 @@
 <table class="table">
     <tbody class="table_body">
-        <tr class="row" *ngFor="let item of dataToDisplay">
+        <tr class="row" *ngFor="let item of dataToDisplay()">
             <ng-container *ngFor="let column of TableStructure">
                 <ng-container [ngSwitch]="column.type">
             <td  class="name" *ngSwitchCase="'text'">

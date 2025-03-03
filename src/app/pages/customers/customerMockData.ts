@@ -5,71 +5,83 @@ export const paidInvoices:IpaidInvoices[]=[
   {
       name:"אוניברסיטת בן גוריון",
     totalAmount:'23502',
-    flag:false
+    flag:false,
+    status:'paid'
     },
   {
     name:"מכבי שירותי בריאות",
     totalAmount:'152312',
-    flag:false
+    flag:false,
+    status:'paid'
 
     },
   {
       name:"רשת",
     totalAmount:'12315',
-        flag:true
+        flag:true,
+        status:'debt'
 
     },
   {
       name:"רשת",
     totalAmount:'12315',
-        flag:true
+        flag:true,
+        status:'debt'
 
     },
   {
       name:"רשת",
     totalAmount:'12315',
-        flag:true
+        flag:true,
+        status:'no-comment'
 
     },
   {
       name:"קשת",
     totalAmount:'45648',
-        flag:false
+        flag:false,
+        status:'paid'
 
     },
   {
       name:"שפע יששכר",
     totalAmount:'45648',
-        flag:true
+        flag:true,
+        status:'no-comment'
 
     },
   {
       name:"אוניברסיטת בן גוריון",
     totalAmount:'23502',
-    flag:false
+    flag:false,
+    status:'paid'
     },
   {
       name:"מכבי שירותי בריאות",
     totalAmount:'152312',
-        flag:false
+        flag:false,
+        status:'paid'
 
     },
   {
       name:"רשת",
     totalAmount:'12315',
-        flag:true
+        flag:true,
+        status:'debt'
 
     },
   {
       name:"קשת",
     totalAmount:'45648',
-        flag:false
+        flag:false,
+        status:'paid'
 
     },
   {
       name:"שפע יששכר",
     totalAmount:'45648',
-        flag:true
+        flag:true,
+        status:'debt'
 
     },
 

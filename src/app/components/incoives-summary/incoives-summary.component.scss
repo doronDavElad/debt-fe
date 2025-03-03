@@ -4,17 +4,69 @@
 }
 .container{
     width: 652px;
-    height: 704px;
+    height: 720px;
     background-color:  $background-white;
     border-radius: 8px;
     padding:16px ;
 
-   .title{
-    height: 36px;
-    font-size: 22px;
-    font-weight: 500;
-    font-family: $bold_font;
+    .header_container{
+        display: flex;
+        justify-content: space-between;
+        height: 64px;
+        .title{
+            height: 36px;
+            font-size: 22px;
+            font-weight: 500;
+            font-family: $bold_font;
+        }
     
+}
+
+.options{
+    display: flex;
+    justify-content: space-between;
+    height: 35px;
+    align-items: center;
+    .status_filter,.customer_status{
+        display: flex;
+        gap: 2px;
+        text-align: center;
+        border: 1px solid $sent_border;
+        border-radius: 8px;
+        padding: 3.5px;
+        height: 35px;
+        
+        
+        .button_container{
+            width: 95px;
+            box-shadow: 0px 6.57px 25.25px 0px rgba(0, 0, 0, 0.15);
+            // background-color:$sent_color;
+            background-color: $price_box_backgrond;
+            border-radius: 4px;
+            place-content: center;
+
+            .bottom_filter{
+                
+            }
+
+            // &:active {
+            //  background-color:$sent_color;
+        
+            //     .bottom_filter {
+            //                    color: white;
+
+            //     }
+            // }
+                }
+                .active{
+                    background-color:$sent_color ;
+                    .bottom_filter {
+                        color: white;
+                
+                }
+                }
+    }
+
 }
 
       

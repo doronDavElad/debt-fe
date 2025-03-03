@@ -1,7 +1,40 @@
 
 <div class="container">
-    <h2 class="title">לקוחות עם חשבוניות שטרם אושרו</h2>
-    <mat-tab-group mat-stretch-tabs="false"
+    <div class="header_container">
+        <h2 class="title">לקוחות עם חשבוניות שטרם אושרו</h2>
+        <app-generic-input
+        [taskeInputs]="taskeInputs"></app-generic-input>
+    </div>
+    <div class="options">
+        <div class="status_filter">
+          <div class="button_container" [ngClass]="{'active': is_active_status_filter === 1}" >
+            <button class="bottom_filter" (click)="tabBottomClick(1,'is_active_status_filter','paid')" >נדחו</button>
+          </div>
+          <div class="button_container" [ngClass]="{'active': is_active_status_filter === 2}" >
+            <button class="bottom_filter" (click)="tabBottomClick(2,'is_active_status_filter','no-comment')">ללא תגובה</button>
+          </div>
+          <div class="button_container" [ngClass]="{'active': is_active_status_filter === 3}">
+            <button class="bottom_filter"  (click)="tabBottomClick(3,'is_active_status_filter','debt')">בחוב</button>
+          </div>
+        </div>
+        <div class="customer_status">
+          <div class="button_container" [ngClass]="{'active': is_active_customer === 1}">
+            <button class="bottom_filter"  (click)="tabBottomClick(1,'is_active_customer','')">לקוח</button>
+          </div>
+          <div class="button_container" [ngClass]="{'active': is_active_customer === 2}">
+            <button class="bottom_filter"  (click)="tabBottomClick(2,'is_active_customer','')">מרכז רווח</button>
+          </div>
+        </div>
+            
+      </div>
+
+      <app-invoices-display-data
+            [invoicesData]="dataToDisplay()"
+            [highestPrice]="highestPrice"
+            [TableStructure]="tabsTableStructure">
+            </app-invoices-display-data>  
+      
+    <!-- <mat-tab-group mat-stretch-tabs="false"
      mat-align-tabs="start"
      (selectedTabChange)="onTabChange($event)"
      >
@@ -31,5 +64,9 @@
 
             </app-invoices-display-data>
         </mat-tab>
-    </mat-tab-group>
+    </mat-tab-group> -->
+    <!-- <app-invoices-display-data
+    [invoicesData]="invoicesData"
+    [highestPrice]="highestPrice">
+    </app-invoices-display-data> -->
 </div>
