@@ -24,12 +24,13 @@ export class CustomersComponent {
   
   //left structure
 
-  constructor(private customerService: CustomersServiceService){}
-  ngOnInit(): void {
+  constructor(private customerService: CustomersServiceService){
+  }
+  ngOnInit(): void { 
     this.invoicesData = this.customerService.invoicesData;
     this.totalData = this.customerService.totalData;
     this.selectedTab = this.customerService.selectedTab;
-    this.highestPrice = this.customerService.getHighestPrice();
+    this.highestPrice = this.customerService.getHighestPrice();    
   }
 
   totalDataStructur:IInvoicesTable[]=[

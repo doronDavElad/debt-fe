@@ -1,4 +1,4 @@
-import { Component, Input, SimpleChanges, input, signal } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, SimpleChanges, input, signal } from '@angular/core';
 import { IpaidInvoices } from '../incoives-summary/invoices-summary.interface';
 import { CommonModule } from '@angular/common';
 import { IInvoicesTable } from './invoices-display-data.interface';
@@ -19,21 +19,22 @@ export class InvoicesDisplayDataComponent {
   totalPages:number=0
   currentPage:number=1
   itemsPerPage: number = 10;
-  dataToDisplay = signal<IpaidInvoices[]>([]);  
+  dataToDisplay = signal<IpaidInvoices[]>([]);
+  constructor(private cdr: ChangeDetectorRef) {}
+
   ngOnInit(): void {
-    console.log(99, this.dataToDisplay());
     if (this.invoicesData && this.invoicesData.length > 0) {
-      // Set the signal with the data
-      this.dataToDisplay.set([...this.invoicesData]);  // Make sure data is copied
-      this.getTotalOfPages(this.invoicesData);  // Get the total pages
-      this.updateDisplayedInvoices();  // Update the invoices based on pagination
+    
+      this.dataToDisplay.set([...this.invoicesData]);
+      this.getTotalOfPages(this.invoicesData);
+      this.updateDisplayedInvoices(); 
+      this.cdr.detectChanges();
     }
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    // Handle the input change for invoicesData
     if (changes['invoicesData']) {
-      console.log('Invoices Data Changed:', this.invoicesData);
+     
       this.dataToDisplay.set([...this.invoicesData]); 
       this.getTotalOfPages(this.invoicesData);  
       this.updateDisplayedInvoices(); 
@@ -61,20 +62,35 @@ export class InvoicesDisplayDataComponent {
   }
   
 
-  updateDisplayedInvoices(): IpaidInvoices[] {
-    const invoicesData = this.dataToDisplay();  
+  // updateDisplayedInvoices(): IpaidInvoices[] {    
+  //   const invoicesData = this.dataToDisplay();  
+  // console.log(1,invoicesData);
+  
+  //   const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+  
+  //   if (this.currentPage === this.totalPages && invoicesData.length % this.itemsPerPage !== 0) {
+  //     this.dataToDisplay.set(invoicesData.slice(-this.itemsPerPage)); 
+  //   } else {
+  //     const endIndex = startIndex + this.itemsPerPage;
+  //     this.dataToDisplay.set(invoicesData.slice(startIndex, endIndex));
+  //     console.log(this.dataToDisplay());
+      
+  //   }
+  
+  //   return this.dataToDisplay();
+  // }
+  updateDisplayedInvoices(): void {    
+    if (!this.invoicesData || this.invoicesData.length === 0) return;
   
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    
+    // Always slice from the original `invoicesData`
+    this.dataToDisplay.set(this.invoicesData.slice(startIndex, endIndex));
   
-    if (this.currentPage === this.totalPages && invoicesData.length % this.itemsPerPage !== 0) {
-      this.dataToDisplay.set(invoicesData.slice(-this.itemsPerPage)); 
-    } else {
-      const endIndex = startIndex + this.itemsPerPage;
-      this.dataToDisplay.set(invoicesData.slice(startIndex, endIndex));
-    }
-  
-    return this.dataToDisplay();
+    console.log('Updated Data:', this.dataToDisplay());
   }
+  
 
 
  getGraphWidth(totalAmount:string){
