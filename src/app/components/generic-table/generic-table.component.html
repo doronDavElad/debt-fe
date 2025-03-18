@@ -52,20 +52,19 @@
                             'credit': rowData[column.controlName] === 'זוכתה',
                         }"
                     >
-                    <img  
-                    *ngIf="rowData[column.controlName] === 'לא נשלחה'"
-                    src="../../../assets/images/indicator.svg" 
-                    alt="didnt send indicator"
-                    [matTooltip]="'שליחת החשבונית נכשלה. יש לבדוק שהמייל תקין.'"
-                    [matTooltipPosition]="'below'"
-                    [matTooltipShowDelay]="0"
-                    matTooltipClass="custom_tooltip"
-                    [matTooltipDisabled]="false"
-                    (mouseenter)="tooltip.show()"
-                    (mouseleave)="tooltip.show()"  
-                    #tooltip="matTooltip"
-                  >
-                  
+                    
+                    <div class="tooltip-container">
+                        <button>
+                          <img 
+                            *ngIf="rowData[column.controlName] === 'לא נשלחה'"
+                            src="../../../assets/images/indicator.svg" 
+                            alt="didnt send indicator"
+                          >
+                          <div class="custom-tooltip">
+                            שליחת החשבונית נכשלה. יש לבדוק שהמייל תקין.
+                          </div>
+                        </button>
+                      </div>
                         <p>
                             {{ rowData[column.controlName] }}
                         </p>

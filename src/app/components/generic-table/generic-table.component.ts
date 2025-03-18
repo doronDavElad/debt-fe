@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { ITableRowData, ItableValues,  TableData } from './table-interface';
 import { CommonModule } from '@angular/common';
 import { Itabs_sub_header } from '../sub-header/subHeader_mockData';
@@ -12,7 +12,17 @@ import { MatTooltipModule } from '@angular/material/tooltip';
   standalone: true,
   imports: [CommonModule,MatTooltipModule],
   templateUrl: './generic-table.component.html',
-  styleUrl: './generic-table.component.scss'
+  styleUrl: './generic-table.component.scss',
+  encapsulation: ViewEncapsulation.None,
+  styles: [`
+  ::ng-deep .custom_tooltip {
+    background-color: red !important;
+    color: white !important;
+    font-size: 14px !important;
+  }
+`]
+
+
 })
 export class GenericTableComponent implements OnInit {
   @Input() allData: ItableValues[] = [];
@@ -36,6 +46,16 @@ export class GenericTableComponent implements OnInit {
     //need to make fetch data for rowData
     
     this.toggleDrawer.emit(rowData);
+  }
+
+  isPopupVisible = false;
+
+  showPopup() {
+    this.isPopupVisible = true;
+  }
+
+  hidePopup() {
+    this.isPopupVisible = false;
   }
 
 

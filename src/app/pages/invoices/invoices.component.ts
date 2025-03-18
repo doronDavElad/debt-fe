@@ -263,24 +263,26 @@ export class InvoicesComponent {
       icon:'../../../assets/images/exel.svg',
     },
     {
-      type:'text',
-      placeHolder:'חיפוש לפי מספר חשבונית או שם לקוח',
-      options:[],
-      icon:'../../../assets/images/search.svg',
-      value:''
-    },
-    {
       type:'date',
       placeHolder:'תאריך ערך',
       options:[],
       icon:'',
       value:''
     },
+   
+  
     {
       type:'select',
       placeHolder:'סינון:',
       options:["הכל","לא נשלחה","נשלחה","נדחתה","אושר לתשלום",'ללא תגובה','אושרה' ,'לתשלום'],
       icon:'../../../assets/images/chevron_down.svg',
+      value:''
+    },
+    {
+      type:'text',
+      placeHolder:'חיפוש לפי מספר חשבונית או שם לקוח',
+      options:[],
+      icon:'../../../assets/images/search.svg',
       value:''
     },
    

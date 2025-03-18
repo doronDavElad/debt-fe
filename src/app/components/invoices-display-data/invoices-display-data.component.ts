@@ -16,6 +16,7 @@ export class InvoicesDisplayDataComponent {
   @Input() invoicesData: IpaidInvoices[] = [];
   @Input() highestPrice: number = 0;
   @Input() TableStructure: IInvoicesTable[] = [];
+  @Input() goToCustomer?: (name: string) => void; 
   totalPages:number=0
   currentPage:number=1
   itemsPerPage: number = 10;

@@ -7,11 +7,14 @@ import { CommonModule } from '@angular/common';
 import { GenericInputComponent } from "../generic-input/generic-input.component";
 import { IgenericInput } from '../generic-input/genericInput.interface';
 import * as XLSX from 'xlsx';
+import { Router, RouterModule, Routes } from '@angular/router';
+import { CustomerComponent } from '../../pages/customer/customer.component';
 
 @Component({
   selector: 'app-incoives-summary',
   standalone: true,
-  imports: [MatTabsModule, CommonModule, GenericInputComponent, InvoicesDisplayDataComponent],
+  imports: [MatTabsModule, CommonModule, GenericInputComponent, InvoicesDisplayDataComponent,RouterModule],
+  
   templateUrl: './incoives-summary.component.html',
   styleUrl: './incoives-summary.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -24,7 +27,8 @@ export class IncoivesSummaryComponent {
   is_active_status_filter: number = 1; 
   is_active_customer: number = 1; 
 constructor(  private cdr: ChangeDetectorRef,
-  private applicationRef: ApplicationRef){
+  private applicationRef: ApplicationRef,
+  private router: Router){
   console.log(this.invoicesData);
   
 }
@@ -86,7 +90,11 @@ filterInvoicesByStatus(status: string): void {
     XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
     XLSX.writeFile(workbook, `invoices-table-${Date.now()}.xlsx`);
   }
-
+  goToCustomer(name: string): void {
+    console.log(111111111,name);
+    this.router.navigate(['/customer']);
+    }
+  
   tabsTableStructure:IInvoicesTable[]=[
     {
       type:'text',

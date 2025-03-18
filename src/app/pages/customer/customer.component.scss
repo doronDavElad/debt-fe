@@ -49,6 +49,8 @@
 
     .table_contaier{
         display: flex;
+        width: 710px;
+        margin-inline-start: 10px;
         
 
         .marked_invoices{
@@ -75,11 +77,14 @@
             }
 
         }
+        .invoicesTable{
+            width: 700px;
+
+        }
         .table{
             .title_and_inputs{
                 display: flex;
                 justify-content: space-between;
-
                 width: 798px;
                 .title{
                     font-size: 22px;

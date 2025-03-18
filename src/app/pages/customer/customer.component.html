@@ -52,14 +52,17 @@
             </ul>  
         </div>
     
-        <app-generic-table 
-        [allData]="tableInvoiceMockData"
-        [tableData]="sortedData()"
-        [sortData]="sortData.bind(this)"
-        [currentSortColumn]="currentSortColumn()"
-        
-        
-        ></app-generic-table>
+        <div class="invoicesTable">
+
+            <app-generic-table 
+            [allData]="tableInvoiceMockData"
+            [tableData]="sortedData()"
+            [sortData]="sortData.bind(this)"
+            [currentSortColumn]="currentSortColumn()"
+            
+            
+            ></app-generic-table>
+        </div>
     </div>
     </div>
 

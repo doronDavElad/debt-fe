@@ -7,6 +7,7 @@
     // align-items: center;
     .input_type{
         height: 100%;
+        // width: 230px;
         .text_input_container{
             // min-width: 18rem;
             height: 100%;
@@ -14,11 +15,13 @@
             border-radius: 8px;
             display: flex;
             align-items: center;
+            width: 290px;
            .search_img{
             // width: 20px;
             height: 20px;
             padding-inline-start: 10px;
             padding-inline-end: 4px;
+          
         } 
         .text_input{
             // width: 95%;
@@ -44,6 +47,7 @@
             border-radius: 8px;
             padding-inline: 8px;
             position: relative;
+            width: 230px;
             .select_input_container{
                 display: flex;
                 align-items: center;
@@ -119,10 +123,13 @@
                 justify-content: space-between;
                 height: 40px;
                 position: relative;
+                width: 230px;
               
                 .input_date{
                   border: none;
                   outline: none;
+                  text-indent: 8px; /* Moves placeholder and text */
+
                 }
 
 
@@ -238,8 +245,11 @@
 
       ::ng-deep .cdk-overlay-pane {
         top: 335.5px !important;
-        left: 581px !important;
+        left: 826px !important;
       }
-      ::ng-deep .mat-datepicker-content {
-      background-color: green !important;
+      ::ng-deep .mat-datepicker-content-container  {
+        background-color: white !important;
       }
+      // ::ng-deep .mat-datepicker-content {
+      // background-color: green !important;
+      // }
