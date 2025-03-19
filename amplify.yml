@@ -10,7 +10,7 @@ frontend:
       commands:
         - npm run build              # Run the build command (adjust this if needed)
   artifacts:
-    baseDirectory: dist/debt-fe   # This should be the output directory from the Angular build
+    baseDirectory: dist/debt_fe   # This should be the output directory from the Angular build
     files:
       - '**/*'                     # Ensure all files are included in the artifact
   cache:
