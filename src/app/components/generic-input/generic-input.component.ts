@@ -2,10 +2,10 @@ import { CommonModule, getLocaleMonthNames, registerLocaleData } from '@angular/
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { IgenericInput } from './genericInput.interface';
 import { FormsModule } from '@angular/forms';
-import { CalendarModule } from 'primeng/calendar';
+// import { CalendarModule } from 'primeng/calendar';
 import { LOCALE_ID } from '@angular/core';
 import localeHe from '@angular/common/locales/he';
-import { PrimeNGConfig } from 'primeng/api'; // Add this import
+// import { PrimeNGConfig } from 'primeng/api'; // Add this import
 import {MatDatepicker, MatDatepickerModule} from '@angular/material/datepicker';
 import {ChangeDetectionStrategy} from '@angular/core';
 import {MAT_DATE_FORMATS, MAT_DATE_LOCALE, provideNativeDateAdapter} from '@angular/material/core';
@@ -33,7 +33,7 @@ export const HEBREW_DATE_FORMATS = {
 @Component({
   selector: 'app-generic-input',
   standalone: true,
-  imports: [CommonModule,FormsModule,CalendarModule,MatDatepickerModule,MatFormFieldModule, MatInputModule, MatDatepickerModule, MatIconModule,OverlayModule],
+  imports: [CommonModule,FormsModule,MatDatepickerModule,MatFormFieldModule, MatInputModule, MatDatepickerModule, MatIconModule,OverlayModule],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'he-IL' },
     { provide: MAT_DATE_FORMATS, useValue: HEBREW_DATE_FORMATS },
@@ -53,7 +53,7 @@ export class GenericInputComponent {
   @Input() exportToExcel: () => void = () => {};
   @Input() date: number | undefined;
   selectedDate: Date | null = null; 
-  minDate: Date;
+  // minDate: Date;
   isDropdownOpen: boolean = false;
   
   @ViewChild('picker') picker!: MatDatepicker<any>; 
@@ -77,21 +77,21 @@ export class GenericInputComponent {
     });
   }
     
-  constructor(private primeNGConfig: PrimeNGConfig) {
-    this.minDate = new Date();
-    this.primeNGConfig.setTranslation({
-      monthNames: [
-        "ינואר", "פברואר", "מרץ", "אפריל", 
-        "מאי", "יוני", "יולי", "אוגוסט", 
-        "ספטמבר", "אוקטובר", "נובמבר", "דצמבר"
-      ],
-      monthNamesShort: [
-        "ינואר", "פברואר", "מרץ", "אפריל", 
-        "מאי", "יוני", "יולי", "אוגוסט", 
-        "ספטמבר", "אוקטובר", "נובמבר", "דצמבר"
-      ]
-    });
-  }
+  // constructor(private primeNGConfig: PrimeNGConfig) {
+  //   this.minDate = new Date();
+  //   this.primeNGConfig.setTranslation({
+  //     monthNames: [
+  //       "ינואר", "פברואר", "מרץ", "אפריל", 
+  //       "מאי", "יוני", "יולי", "אוגוסט", 
+  //       "ספטמבר", "אוקטובר", "נובמבר", "דצמבר"
+  //     ],
+  //     monthNamesShort: [
+  //       "ינואר", "פברואר", "מרץ", "אפריל", 
+  //       "מאי", "יוני", "יולי", "אוגוסט", 
+  //       "ספטמבר", "אוקטובר", "נובמבר", "דצמבר"
+  //     ]
+  //   });
+  // }
 
   onDateChange(date: Date): void {
     console.log('Selected Date:', date);
